@@ -95,20 +95,20 @@ root.render(
       <Route path="/poll_31" element={<Survey survey={'poll-3-1'} key={'poll-3-1'} />} />
       <Route path="/poll_32" element={<Survey survey={'poll-3-2'} key={'poll-3-2'} />} />
       {/* ~! */}
-      {/*
+
       <Route path="/dashboard1" element={<Dashboard show={1} />} />
       <Route path="/dashboard2" element={<Dashboard show={2} />} />
       <Route path="/dashboard3" element={<Dashboard show={3} />} />
       <Route path="/dashboard4" element={<Dashboard show={4} />} />
       <Route path="/dashboard5" element={<Dashboard show={5} />} />
       <Route path="/dashboard6" element={<Dashboard show={6} />} />
-      */}
+
       {/*  */}
-      {/*
+
       <Route path="/dashboardPoll1" element={<Dashboard show={7} />} />
       <Route path="/dashboardPoll2" element={<Dashboard show={8} />} />
       <Route path="/dashboardPoll3" element={<Dashboard show={9} />} />
-      */}
+
 
       {/*  */}
       <Route path="/text12" element={<Text show={12} />} />

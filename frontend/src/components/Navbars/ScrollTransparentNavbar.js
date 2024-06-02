@@ -237,7 +237,7 @@ function ScrollTransparentNavbar() {
                   {/*</DropdownItem>*/}
                 </DropdownMenu>
               </UncontrolledDropdown>
-              {/*
+
               <UncontrolledDropdown nav>
                 <DropdownToggle
                   caret
@@ -290,19 +290,19 @@ function ScrollTransparentNavbar() {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
-              */}
-              {/*/!* <NavItem>*/}
-              {/*    <Button*/}
-              {/*        className="nav-link btn-default"*/}
-              {/*        color={buyButtonColor}*/}
-              {/*        onClick={_=>{*/}
-              {/*          navigate('/dashboard')*/}
-              {/*        }}*/}
-              {/*        target="_blank"*/}
-              {/*    >*/}
-              {/*      <p>Dashboard</p>*/}
-              {/*    </Button>*/}
-              {/*  </NavItem> *!/*/}
+
+              <NavItem>
+                  <Button
+                      className="nav-link btn-default"
+                      color={buyButtonColor}
+                      onClick={_=>{
+                        navigate('/dashboard')
+                      }}
+                      target="_blank"
+                  >
+                    <p>Dashboard</p>
+                  </Button>
+              </NavItem>
 
 
 
