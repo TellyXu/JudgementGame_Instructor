@@ -190,8 +190,14 @@ function Dashboard({ show }) {
                         {
                             show === 1 && <div>
                                 <h2 style={{ color: 'white', textAlign: 'center' }}>Judgement 1</h2>
-                                <div style={{ display: "flex", flexWrap: 'wrap', justifyContent: 'center' }}>
-                                    <div style={{ background: '#ffffff', padding: '15px', borderRadius: '10px' }}>
+                                <div style={{
+                                    display: "flex",
+                                    flexWrap: 'wrap',
+                                    justifyContent: 'center',
+                                    marginBottom: '20px'
+                                }}>
+
+                                    <div style={{background: '#ffffff', padding: '15px', borderRadius: '10px'}}>
                                         <p>
                                             Did Gandhi die before or after the age of <strong>144</strong>?
                                         </p>
@@ -200,7 +206,12 @@ function Dashboard({ show }) {
                                         <p className="text-14">Before: {Math.round((p0.filter(item => item.Q1_Answer === 0).length / (_data.filter(item => item.survey_num === 1 && item.version === 1).length)) * 100)}%</p>
                                         <p className="text-14">After: {Math.round((p0.filter(item => item.Q1_Answer === 1).length / (_data.filter(item => item.survey_num === 1 && item.version === 1).length)) * 100)}%</p>
                                     </div>
-                                    <div style={{ marginLeft: '20px', background: '#ffffff', padding: '15px', borderRadius: '10px' }}>
+                                    <div style={{
+                                        marginLeft: '20px',
+                                        background: '#ffffff',
+                                        padding: '15px',
+                                        borderRadius: '10px'
+                                    }}>
                                         <p>
                                             Did Gandhi die before or after the age of <strong>32</strong>?
                                         </p>
@@ -209,15 +220,70 @@ function Dashboard({ show }) {
                                         <p className="text-14">Before: {Math.round((p1.filter(item => item.Q1_Answer === 0).length / (_data.filter(item => item.survey_num === 1 && item.version === 2).length)) * 100)}%</p>
                                         <p className="text-14">After: {Math.round((p1.filter(item => item.Q1_Answer === 1).length / (_data.filter(item => item.survey_num === 1 && item.version === 2).length)) * 100)}%</p>
                                     </div>
+
+
+                                    <div style={{
+                                        marginLeft: '20px',
+                                        marginTop: '20px',
+                                        background: '#ffffff',
+                                        padding: '15px',
+                                        borderRadius: '10px'
+                                    }}>
+                                        <p>
+                                            What age did Gandhi die at?
+                                        </p>
+                                        <hr></hr>
+                                        <p className="text-14">Group 1 answer average age : {p2.length > 0 ?
+                                            (p2.reduce((acc, cur) => acc + (cur.Q2_Answer || 0), 0) / p2.length).toFixed(2)
+                                            : "No data available"}</p>
+
+
+                                        <p className="text-14">Group 2 answer average age :
+                                            {p3.length > 0 ?
+                                            (p3.reduce((acc, cur) => acc + (cur.Q2_Answer || 0), 0) / p3.length).toFixed(2)
+                                            : "No data available"}
+                                            </p>
+                                        <p className="text-14">Total average age :
+
+                                        {p4.length > 0 ?
+                                            (p4.reduce((acc, cur) => acc + (cur.Q2_Answer || 0), 0) / p4.length).toFixed(2)
+                                            : "No data available"}
+                                            </p>
+                                    </div>
+
                                 </div>
 
-                                <div className="mt-2" style={{ display: "flex", flexWrap: 'wrap', justifyContent: 'center' }}>
+                                {/*<div className="mt-2" style={{
+                                    display: "flex",
+                                    flexWrap: 'wrap',
+                                    justifyContent: 'center',
+                                    marginTop: '20px'
+                                }}>
                                     <div>
-                                        <Box pData={p2} name='Judgement 1 Group 1 answer' keyName='Q2_Answer' Xname=' ' Yname='age'/>
+                                        <h3>Group 1 answer average age:</h3>
+                                        {p2.length > 0 ?
+                                            (p2.reduce((acc, cur) => acc + (cur.Q2_Answer || 0), 0) / p2.length).toFixed(2)
+                                            : "No data available"}
+
+                                        <h3>Group 2 answer average age:</h3>
+                                        {p3.length > 0 ?
+                                            (p3.reduce((acc, cur) => acc + (cur.Q2_Answer || 0), 0) / p3.length).toFixed(2)
+                                            : "No data available"}
+                                        <h3>Total average age:</h3>
+                                        {p4.length > 0 ?
+                                            (p4.reduce((acc, cur) => acc + (cur.Q2_Answer || 0), 0) / p4.length).toFixed(2)
+                                            : "No data available"}
                                     </div>
-                                    <div style={{ marginLeft: '20px' }}>
-                                        <Box pData={p3} name='Judgement 1 Group 2 answer' keyName='Q2_Answer' Xname=' ' Yname='age'/>
-                                    </div>
+
+
+                                    {/*<div>*/}
+                                    {/*    <Box pData={p2} name='Judgement 1 Group 1 answer' keyName='Q2_Answer' Xname=' '*/}
+                                    {/*         Yname='age'/>*/}
+                                    {/*</div>*/}
+                                    {/*<div style={{marginLeft: '20px'}}>*/}
+                                    {/*    <Box pData={p3} name='Judgement 1 Group 2 answer' keyName='Q2_Answer' Xname=' '*/}
+                                    {/*         Yname='age'/>*/}
+                                    {/*</div>*/}
                                     {/*<div style={{ marginLeft: '20px' }}>*/}
                                     {/*    <DualBoxEchart*/}
                                     {/*        pData1={p2} name1='Judgement 1 Group 1 answer' keyName1='Q2_Answer' Xname1=' ' Yname1='age'*/}
@@ -225,19 +291,23 @@ function Dashboard({ show }) {
                                     {/*    />*/}
                                     {/*</div>*/}
 
-                                    <div>
-                                        <Box pData={p4} name='Judgement 1 Total answer' keyName='Q2_Answer' Xname=' ' Yname='age'/>
-                                    </div>
-                                </div>
+
+                                    {/*<div>*/}
+                                    {/*    <Box pData={p4} name='Judgement 1 Total answer' keyName='Q2_Answer' Xname=' '*/}
+                                    {/*         Yname='age'/>*/}
+                                    {/*</div>
+
+
+                                </div>*/}
                             </div>
                         }
 
                         {
-                            show === 2 && <div style={{ marginTop: "10px" }}>
-                                <h2 style={{ color: 'white', textAlign: 'center' }}>Judgement 2</h2>
+                            show === 2 && <div style={{marginTop: "10px"}}>
+                                <h2 style={{color: 'white', textAlign: 'center'}}>Judgement 2</h2>
 
                                 <div className="mb-20 cbg-white text-black p-4 rounded-md">
-                                    <p className="m-0 text-center mt-4">How much would you donate?</p>
+                                <p className="m-0 text-center mt-4">How much would you donate?</p>
                                 </div>
 
 
@@ -245,28 +315,51 @@ function Dashboard({ show }) {
 
                                     <div className="bbg-white">
                                         <div class={'container-tips text-14'}>
-                                            <p className="m-0 tips">You are generally a charitable person and regularly donate. Your favorite charity reached out recently and requested a donation of <strong>$400</strong>.
+                                            <p className="m-0 tips">You are generally a charitable person and regularly
+                                                donate. Your favorite charity reached out recently and requested a
+                                                donation of <strong>$400</strong>.
                                             </p>
                                         </div>
 
-                                        <Box pData={survey2Data.filter(item => item.version === 1)} name='Judgement 2 Group 1 answer'
-                                            keyName='Q1_Answer' Xname=' ' Yname='$'/>
+                                        <hr></hr>
+                                        <p className="text-14">Group 1 average :
+                                            {survey2Data.filter(item => item.version === 1).length > 0 ?
+                                                (survey2Data.filter(item => item.version === 1).reduce((acc, cur) => acc + (cur.Q1_Answer || 0), 0) / survey2Data.filter(item => item.version === 1).length).toFixed(2)
+                                                : "No data available"}</p>
+
+
+                                        {/*<Box pData={survey2Data.filter(item => item.version === 1)}*/}
+                                        {/*     name='Judgement 2 Group 1 answer'*/}
+                                        {/*     keyName='Q1_Answer' Xname=' ' Yname='$'/>*/}
                                     </div>
 
                                     <div className="bbg-white ml-20">
                                         <div class={'container-tips text-14'}>
-                                            <p className="m-0 tips">You are generally a charitable person and regularly donate. Your favorite charity reached out recently and requested a donation of <strong>$5</strong>.
+                                            <p className="m-0 tips">You are generally a charitable person and regularly
+                                                donate. Your favorite charity reached out recently and requested a
+                                                donation of <strong>$5</strong>.
                                             </p>
                                         </div>
 
-                                        <Box pData={survey2Data.filter(item => item.version === 2)} name='Judgement 2 Group 2 answer'
-                                            keyName='Q1_Answer' Xname=' ' Yname='$' />
+                                        <hr></hr>
+                                        <p className="text-14">Group 2 average :
+                                            {survey2Data.filter(item => item.version === 2).length > 0 ?
+                                                (survey2Data.filter(item => item.version === 2).reduce((acc, cur) => acc + (cur.Q1_Answer || 0), 0) / survey2Data.filter(item => item.version === 2).length).toFixed(2)
+                                                : "No data available"}</p>
+                                        {/*<Box pData={survey2Data.filter(item => item.version === 2)}*/}
+                                        {/*     name='Judgement 2 Group 2 answer'*/}
+                                        {/*     keyName='Q1_Answer' Xname=' ' Yname='$'/>*/}
                                     </div>
 
                                     <div className="bbg-white ml-20 mt-20">
                                         <div class={'container-tips text-14'}>
 
                                         </div>
+
+                                        <p className="text-18 text-center" >Total average :
+                                            {survey2Data.length > 0 ?
+                                                (survey2Data.reduce((acc, cur) => acc + (cur.Q1_Answer || 0), 0) / survey2Data.length).toFixed(2)
+                                                : "No data available"}</p>
 
                                         {/*<CombinedBoxEchart*/}
                                         {/*    dataGroup1={survey2Data.filter(item => item.version === 1)}*/}
@@ -277,9 +370,9 @@ function Dashboard({ show }) {
                                         {/*/>*/}
 
 
-                                        <div>
-                                            <Box pData={survey2Data.filter(item => item.version === 1 || item.version === 2)} name='Judgement 2 Total answer' keyName='Q1_Answer' Xname=' ' />
-                                        </div>
+                                        {/*<div>*/}
+                                        {/*    <Box pData={survey2Data.filter(item => item.version === 1 || item.version === 2)} name='Judgement 2 Total answer' keyName='Q1_Answer' Xname=' ' />*/}
+                                        {/*</div>*/}
                                     </div>
 
 
@@ -289,7 +382,7 @@ function Dashboard({ show }) {
 
                         {
                             show === 5 && <div>
-                                <h2 style={{ color: 'white', textAlign: 'center' }}>Judgement 5</h2>
+                                <h2 style={{color: 'white', textAlign: 'center'}}>Judgement 5</h2>
 
                                 <div className="mb-20 cbg-white text-black p-4 rounded-md">
                                     <p className="m-0 text-center mt-4">Will you shift to another store?</p>
@@ -397,17 +490,17 @@ function Dashboard({ show }) {
                                                 and <strong>70 patients got better</strong>.</p>
                                         </div>
                                         <hr/>
-                                        <PiA isDiyData filter={[1, 2, 3, 4, 5, 6]}
-                                             pData={survey6Data.filter(item => item.version === 1)}
-                                             name='survey4_Q1_Answer'
-                                             keyName='Q1_Answer' tag={['1', '2', '3', '4', '5', '6']}/>
+                                        {/*<PiA isDiyData filter={[1, 2, 3, 4, 5, 6]}*/}
+                                        {/*     pData={survey6Data.filter(item => item.version === 1)}*/}
+                                        {/*     name='survey4_Q1_Answer'*/}
+                                        {/*     keyName='Q1_Answer' tag={['1', '2', '3', '4', '5', '6']}/>*/}
 
-                                        {/*<p>1: {Math.round((survey6Data.filter(item => item.Q1_Answer === 1 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                        {/*<p>2: {Math.round((survey6Data.filter(item => item.Q1_Answer === 2 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                        {/*<p>3: {Math.round((survey6Data.filter(item => item.Q1_Answer === 3 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                        {/*<p>4: {Math.round((survey6Data.filter(item => item.Q1_Answer === 4 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                        {/*<p>5: {Math.round((survey6Data.filter(item => item.Q1_Answer === 5 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                        {/*<p>6: {Math.round((survey6Data.filter(item => item.Q1_Answer === 6 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
+                                        <p>1: {Math.round((survey6Data.filter(item => item.Q1_Answer === 1 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>2: {Math.round((survey6Data.filter(item => item.Q1_Answer === 2 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>3: {Math.round((survey6Data.filter(item => item.Q1_Answer === 3 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>4: {Math.round((survey6Data.filter(item => item.Q1_Answer === 4 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>5: {Math.round((survey6Data.filter(item => item.Q1_Answer === 5 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>6: {Math.round((survey6Data.filter(item => item.Q1_Answer === 6 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
 
 
                                     </div>
@@ -418,17 +511,17 @@ function Dashboard({ show }) {
                                                     patients did not get better</strong>.</p>
                                         </div>
                                         <hr/>
-                                        <PiA isDiyData filter={[1, 2, 3, 4, 5, 6]}
-                                             pData={survey6Data.filter(item => item.version === 2)}
-                                             name='survey4_Q2_Answer'
-                                             keyName='Q1_Answer' tag={['1', '2', '3', '4', '5', '6']}/>
+                                        {/*<PiA isDiyData filter={[1, 2, 3, 4, 5, 6]}*/}
+                                        {/*     pData={survey6Data.filter(item => item.version === 2)}*/}
+                                        {/*     name='survey4_Q2_Answer'*/}
+                                        {/*     keyName='Q1_Answer' tag={['1', '2', '3', '4', '5', '6']}/>*/}
 
-                                        {/*<p>1: {Math.round((survey6Data.filter(item => item.Q1_Answer === 1 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                        {/*<p>2: {Math.round((survey6Data.filter(item => item.Q1_Answer === 2 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                        {/*<p>3: {Math.round((survey6Data.filter(item => item.Q1_Answer === 3 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                        {/*<p>4: {Math.round((survey6Data.filter(item => item.Q1_Answer === 4 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                        {/*<p>5: {Math.round((survey6Data.filter(item => item.Q1_Answer === 5 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                        {/*<p>6: {Math.round((survey6Data.filter(item => item.Q1_Answer === 6 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
+                                        <p>1: {Math.round((survey6Data.filter(item => item.Q1_Answer === 1 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>2: {Math.round((survey6Data.filter(item => item.Q1_Answer === 2 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>3: {Math.round((survey6Data.filter(item => item.Q1_Answer === 3 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>4: {Math.round((survey6Data.filter(item => item.Q1_Answer === 4 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>5: {Math.round((survey6Data.filter(item => item.Q1_Answer === 5 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>6: {Math.round((survey6Data.filter(item => item.Q1_Answer === 6 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
                                     </div>
                                 </div>
 

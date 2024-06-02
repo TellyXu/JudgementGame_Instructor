@@ -288,21 +288,33 @@ function ScrollTransparentNavbar() {
                     <i className="now-ui-icons business_chart-pie-36"></i>
                     Poll 3
                   </DropdownItem>
+
                 </DropdownMenu>
               </UncontrolledDropdown>
 
               <NavItem>
-                  <Button
-                      className="nav-link btn-default"
-                      color={buyButtonColor}
-                      onClick={_=>{
-                        navigate('/dashboard')
-                      }}
-                      target="_blank"
-                  >
-                    <p>Dashboard</p>
-                  </Button>
+                <Button
+                    className="nav-link btn-default"
+                    color="primary"
+                    onClick={() => {
+                      if (window.confirm("Are you sure you want to delete all data? This action cannot be undone.")) {
+                        fetch('https://judge-ins-backend.onrender.com/deleteAll', {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json'
+                          }
+                        })
+                            .then(response => response.json())
+                            .then(data => alert('All data deleted successfully!'))
+                            .catch(error => alert('Failed to delete data: ' + error));
+                      }
+                    }}
+                    target="_blank"
+                >
+                  <p>DELETE ALL DATA</p>
+                </Button>
               </NavItem>
+
 
 
 
