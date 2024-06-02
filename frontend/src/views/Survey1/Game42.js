@@ -36,7 +36,7 @@ function Game32() {
         };
 
         try {
-            const response = await fetch('http://localhost:8001/submit', {
+            const response = await fetch('https://judge-ins-backend.onrender.com/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -56,7 +56,7 @@ function Game32() {
     };
 
     const getResult = async () => {
-        fetch("http://localhost:8001/find", { method: 'POST' })
+        fetch("https://judge-ins-backend.onrender.com/find", { method: 'POST' })
             .then((response) => response.json())
             .then(({ data, code }) => {
                 console.log('data' + code, data)

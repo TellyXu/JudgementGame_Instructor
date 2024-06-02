@@ -14,7 +14,7 @@ function App() {
 
     useEffect(() => {
         document.title = ' RAG - OPENAI | CDHAI';
-        const ws = new WebSocket('ws://localhost:8001/ws'); // Ensure this is the correct URL for your WebSocket connection
+        const ws = new WebSocket('ws://judge-ins-backend.onrender.com/ws'); // Ensure this is the correct URL for your WebSocket connection
         ws.onopen = () => console.log('WebSocket Connected');
         ws.onmessage = (event) => {
             console.log('Message from WebSocket:', event.data);
@@ -32,7 +32,7 @@ function App() {
         event.preventDefault();
         setError(''); // Clear any previous errors
         try {
-            const response = await fetch('http://localhost:8001/process-filings/', {
+            const response = await fetch('https://judge-ins-backend.onrender.com/process-filings/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
