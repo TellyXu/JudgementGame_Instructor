@@ -1,0 +1,6 @@
+.scrollable {
+    max-height: 200px;  /* Adjust this value based on your preference */
+    overflow-y: auto;   /* Enables vertical scrollbar if needed */
+    padding: 0 40px;
+    text-align: center;
+}

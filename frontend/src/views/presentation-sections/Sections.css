@@ -1,0 +1,66 @@
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    /* 每张图片间均匀分布 */
+    align-items: center;
+    padding: 20px;
+}
+
+.img-container {
+    width: calc(100% / 6 - 10px);
+    /* 保持每个容器同样的宽度并减去间距 */
+    height: 300px;
+    /* 固定高度 */
+    margin: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+#sections-container {
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+#sections-container:hover {
+    opacity: 1;
+}
+
+
+
+#sections-container>#sections-top:hover {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+#sections-container>#sections-bottom:hover {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+
+
+#sections-container {
+    cursor: pointer;
+}
+
+#sections-container2 {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sections-top,
+#sections-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
