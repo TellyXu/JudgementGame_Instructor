@@ -57,6 +57,19 @@ app.post('/find', (req, res) => {
     });
 });
 
+
+// 删除所有数据的路由
+app.post('/deleteAll', (req, res) => {
+    const query = 'DELETE FROM survey_summary';
+    pool.query(query, (error, results) => {
+        if (error) {
+            return res.status(500).json({ error: 'Failed to delete data', details: error.message });
+        }
+        res.json({ message: 'All data deleted successfully!' });
+    });
+});
+
+
 // 服务器监听 8001 端口
 const PORT = 8001;
 app.listen(PORT, () => {
