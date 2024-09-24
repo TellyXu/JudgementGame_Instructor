@@ -58,7 +58,7 @@ function Dashboard({ show }) {
 
     const [_data, _setData] = useState([]);
     const getaData = () => {
-        fetch("https://judge-ins-backend.onrender.com/find", { method: 'POST' })
+        fetch("https://judgementgame-instructor.onrender.com/find", { method: 'POST' })
             .then((response) => response.json())
             .then(({ data, code }) => {
                 console.log('data' + code, data)
