@@ -75,13 +75,13 @@ function ScrollTransparentNavbar() {
 
 
             <NavbarBrand to="/" tag={Link} id="navbar-brand1">
-              CDHAI
+              XXXXX
             </NavbarBrand>
             <NavbarBrand to="/" tag={Link} id="navbar-brand2">
               |
             </NavbarBrand>
             <NavbarBrand to="/" tag={Link} id="navbar-brand3">
-              Carey Business School
+              XXXXX
             </NavbarBrand>
 
 

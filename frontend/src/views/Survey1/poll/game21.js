@@ -31,7 +31,7 @@
 //         };
 //
 //         try {
-//             const response = await fetch('https://judge-ins-backend.onrender.com/submit', {
+//             const response = await fetch('https://judgementgame-instructor.onrender.com/submit', {
 //                 method: 'POST',
 //                 headers: { 'Content-Type': 'application/json' },
 //                 body: JSON.stringify(data)
@@ -52,7 +52,7 @@
 //     };
 //
 //     const getResult = async () => {
-//         fetch("https://judge-ins-backend.onrender.com/find", { method: 'POST' })
+//         fetch("https://judgementgame-instructor.onrender.com/find", { method: 'POST' })
 //             .then((response) => response.json())
 //             .then(({ data, code }) => {
 //                 console.log('data' + code, data)
@@ -188,12 +188,12 @@ function CombinedGame() {
 
         try {
             const responses = await Promise.all([
-                fetch('https://judge-ins-backend.onrender.com/submit', {
+                fetch('https://judgementgame-instructor.onrender.com/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data1)
                 }),
-                fetch('https://judge-ins-backend.onrender.com/submit', {
+                fetch('https://judgementgame-instructor.onrender.com/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data2)
@@ -218,7 +218,7 @@ function CombinedGame() {
 
     const getResult = async () => {
         try {
-            const response = await fetch("https://judge-ins-backend.onrender.com/find", { method: 'POST' });
+            const response = await fetch("https://judgementgame-instructor.onrender.com/find", { method: 'POST' });
             const { data, code } = await response.json();
             if (code === 200) {
                 setResultData1(data.filter(item => item.survey_num === 8 && item.version === 1));
