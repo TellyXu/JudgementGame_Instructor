@@ -33,15 +33,13 @@ const pool = new Pool({
 
 
 // 测试数据库连接
-pool.getConnection((err, connection) => {
+pool.query('SELECT NOW()', (err, res) => {
     if (err) {
-        console.error('数据库连接错误:', err);
-        return;
+        console.error('Database connection error:', err.stack);
+    } else {
+        console.log('Database connected:', res.rows[0].now);
     }
-    console.log('数据库连接成功');
-    connection.release();
 });
-
 // 提交问卷调查的路由
 app.post('/submit', (req, res) => {
     console.log('接收到的数据:', req.body); // 记录接收到的数据
@@ -50,7 +48,7 @@ app.post('/submit', (req, res) => {
     // 将空字符串替换为默认值
     const values = [survey_number, version, parseInt(Q1, 10), parseInt(Q2, 10), text_val];
 
-    const query = `INSERT INTO survey_summary (survey_num, version, Q1_Answer, Q2_Answer, text_val) VALUES (?, ?, ?, ?, ?)`;
+    const query = `INSERT INTO survey_summary (survey_num, version, Q1_Answer, Q2_Answer, text_val) VALUES ($1, $2, $3, $4, $5)`;
     pool.query(query, values, (error, results) => {
         if (error) {
             console.error('数据库查询错误:', error);
@@ -61,15 +59,17 @@ app.post('/submit', (req, res) => {
 });
 
 // 查询接口
-// 提交问卷调查的路由
 app.post('/find', (req, res) => {
     const query = `SELECT * FROM survey_summary`;
     pool.query(query, (error, results) => {
-        console.log('result', results)
-        return res.json({ code: 200, msg: 'success', data: results })
+        if (error) {
+            console.error('查询错误:', error);
+            return res.status(500).json({ error: '获取数据时出错', details: error.message });
+        }
+        console.log('result', results.rows); // 注意在 pg 中，返回的数据在 results.rows 中
+        res.json({ code: 200, msg: 'success', data: results.rows });
     });
 });
-
 
 // 删除所有数据的路由
 app.post('/deleteAll', (req, res) => {
@@ -81,7 +81,6 @@ app.post('/deleteAll', (req, res) => {
         res.json({ message: 'All data deleted successfully!' });
     });
 });
-
 
 // 服务器监听 8001 端口
 const PORT = 8001;
