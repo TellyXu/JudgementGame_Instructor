@@ -21,11 +21,12 @@ app.use(express.static('public')); // 从 'public' 目录提供静态文件
 //});
 
 const pool = new Pool({
-    host: 'dpg-crpgj9lds78s73d9vo0g-a.virginia-postgres.render.com',
+    
+    host: 'dpg-crpgut3tq21c739acapg-a.virginia-postgres.render.com',
     port: 5432,
-    user: 'telly',
-    password: '11amgA5ZMrjrIwy0GI4kA4mUUVOtrktn',
-    database: 'surveys_e754',
+    user: 'survey_summary_user',
+    password: 'e5ibAi4EBZPmIZkf2NSdOa7lHq0SPDAT',
+    database: 'survey_summary',
     ssl: {
         rejectUnauthorized: true // This should be true to ensure secure connections
     }
