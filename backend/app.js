@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mysql = require('mysql');
+//const mysql = require('mysql');
+const { Pool } = require('pg');
 const cors = require('cors'); // 添加此行
 
 const app = express();
@@ -9,15 +10,27 @@ app.use(bodyParser.json()); // 支持 JSON 编码的请求体
 app.use(express.static('public')); // 从 'public' 目录提供静态文件
 
 // 创建数据库连接池
-const pool = mysql.createPool({
-    host: 'forritu1.mysql.database.azure.com',
-    user: 'maxwell',
-    password: 'guztiw-3Fefqu-retnyv',
-    database: 'surveys',
+//const pool = mysql.createPool({
+//    host: 'forritu1.mysql.database.azure.com',
+//    user: 'maxwell',
+//    password: 'guztiw-3Fefqu-retnyv',
+//    database: 'surveys',
+//    ssl: {
+//        rejectUnauthorized: true
+//    }
+//});
+
+const pool = new Pool({
+    host: 'dpg-crpgj9lds78s73d9vo0g-a.virginia-postgres.render.com',
+    port: 5432,
+    user: 'telly',
+    password: '11amgA5ZMrjrIwy0GI4kA4mUUVOtrktn',
+    database: 'surveys_e754',
     ssl: {
-        rejectUnauthorized: true
+        rejectUnauthorized: true // This should be true to ensure secure connections
     }
 });
+
 
 // 测试数据库连接
 pool.getConnection((err, connection) => {
