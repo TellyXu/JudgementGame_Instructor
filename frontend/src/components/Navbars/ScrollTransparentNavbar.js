@@ -241,82 +241,9 @@ function ScrollTransparentNavbar() {
                 </DropdownMenu>
               </UncontrolledDropdown>
 
-              <UncontrolledDropdown nav>
-                <DropdownToggle
-                  caret
-                  color="default"
-                  data-toggle="dropdown"
-                  href="#pablo"
-                  id="navbarDropdownMenuLink"
-                  nav
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <img src={dashboard} alt="dashboard" />
-                  <p>Dashboard</p>
-                </DropdownToggle>
-                <DropdownMenu aria-labelledby="navbarDropdownMenuLink" right>
-                  <DropdownItem to="/dashboard1" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36"></i>
-                    Dashboard 1
-                  </DropdownItem>
-                  <DropdownItem to="/dashboard2" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36"></i>
-                    Dashboard 2
-                  </DropdownItem>
-                  <DropdownItem to="/dashboard3" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36"></i>
-                    Dashboard 3
-                  </DropdownItem>
-                  <DropdownItem to="/dashboard4" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36"></i>
-                    Dashboard 4
-                  </DropdownItem>
-                  <DropdownItem to="/dashboard5" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36"></i>
-                    Dashboard 5
-                  </DropdownItem>
-                  <DropdownItem to="/dashboard6" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36"></i>
-                    Dashboard 6
-                  </DropdownItem>
-                  <DropdownItem to="/dashboardPoll1" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36"></i>
-                    Poll 1
-                  </DropdownItem>
-                  <DropdownItem to="/dashboardPoll2" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36"></i>
-                    Poll 2
-                  </DropdownItem>
-                  <DropdownItem to="/dashboardPoll3" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36"></i>
-                    Poll 3
-                  </DropdownItem>
+              
 
-                </DropdownMenu>
-              </UncontrolledDropdown>
-
-              <NavItem>
-                <Button
-                    className="nav-link btn-default"
-                    color="primary"
-                    onClick={() => {
-                      if (window.confirm("Are you sure you want to delete all data? This action cannot be undone.")) {
-                        fetch('https://judgementgame-instructor.onrender.com/deleteAll', {
-                          method: 'POST',
-                          headers: {
-                            'Content-Type': 'application/json'
-                          }
-                        })
-                            .then(response => response.json())
-                            .then(data => alert('All data deleted successfully!'))
-                            .catch(error => alert('Failed to delete data: ' + error));
-                      }
-                    }}
-                    target="_blank"
-                >
-                  <p>DELETE ALL DATA</p>
-                </Button>
-              </NavItem>
+              
 
 
 
