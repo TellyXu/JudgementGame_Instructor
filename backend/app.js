@@ -22,7 +22,7 @@ app.use(express.static('public')); // 从 'public' 目录提供静态文件
 
 const pool = new Pool({
 
-    host: 'dpg-crpgut3tq21c739acapg-a.virginia-postgres.render.com/survey_summary',
+    host: 'dpg-crpgut3tq21c739acapg-a.virginia-postgres.render.com',
     port: 5432,
     user: 'survey_summary_user',
     password: 'e5ibAi4EBZPmIZkf2NSdOa7lHq0SPDAT',
