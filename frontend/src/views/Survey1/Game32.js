@@ -71,6 +71,18 @@ function Game62() {
             });
     }
 
+    React.useEffect(() => {
+        console.log('resultData updated:', resultData);
+
+
+        console.log('resultData', resultData)
+
+        console.log('Entries with q1_answer === 0:', resultData.map(item => item.q1_answer));
+
+        console.log('resultData/',         Math.round(getAvg(resultData.map(item => item.q1_answer))));
+    }, [resultData]);  // Dependency array, re-run the effect when resultData changes
+
+
     const getAvg = (values) => {
         try {
             if (values.length === 0) {
@@ -121,7 +133,7 @@ function Game62() {
                 <h3>Result</h3>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <p>Average score:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round(getAvg(resultData.map(item => item.Q1_Answer)))}</p>
+                    <p style={{ fontWeight: 'bold' }}>{Math.round(getAvg(resultData.map(item => item.q1_answer)))}</p>
                 </div>
             </div>
 

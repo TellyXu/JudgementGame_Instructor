@@ -15,7 +15,8 @@ import {
   Container,
   UncontrolledTooltip,
 } from "reactstrap";
-
+//frontend/src/assets/svg/2022-9-1101 Digital Health AI Center Horizontal Title Treatment_White.png
+import logo from "assets/svg/2022-9-1101 Digital Health AI Center Horizontal Title Treatment_White.png";
 import looksTwoIcon from 'assets/svg/people_alt2.svg';
 import looksOneIcon from 'assets/svg/people_alt1.svg';
 import dashboard  from "assets/svg/dashboard.svg";
@@ -72,17 +73,19 @@ function ScrollTransparentNavbar() {
       <Navbar className={"fixed-top" + navbarColor} color="white" expand="lg">
         <Container>
           <div className="navbar-translate">
-
-
             <NavbarBrand to="/" tag={Link} id="navbar-brand1">
-              XXXXX
+                <img src={logo} alt="logo" style={{ height: '50px' }} />
             </NavbarBrand>
-            <NavbarBrand to="/" tag={Link} id="navbar-brand2">
-              |
-            </NavbarBrand>
-            <NavbarBrand to="/" tag={Link} id="navbar-brand3">
-              XXXXX
-            </NavbarBrand>
+
+            {/*<NavbarBrand to="/" tag={Link} id="navbar-brand1">*/}
+            {/*  JHU Carey Business School*/}
+            {/*</NavbarBrand>*/}
+            {/*<NavbarBrand to="/" tag={Link} id="navbar-brand2">*/}
+            {/*  |*/}
+            {/*</NavbarBrand>*/}
+            {/*<NavbarBrand to="/" tag={Link} id="navbar-brand3">*/}
+            {/*  CDHAI*/}
+            {/*</NavbarBrand>*/}
 
 
             <UncontrolledTooltip target="navbar-brand1">

@@ -107,7 +107,7 @@ function Game21() {
                 <h3>Result</h3>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <p>Average donation amount:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round(getAvg(resultData.map(item => item.Q1_Answer)))}</p>
+                    <p style={{ fontWeight: 'bold' }}>{Math.round(getAvg(resultData.map(item => item.q1_answer)))}</p>
                 </div>
             </div>
 

@@ -105,19 +105,19 @@ function Game41() {
                 <h3>Result</h3>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <p>YES total count:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.Q1_Answer === 1)).length}</p>
+                    <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.q1_answer === 1)).length}</p>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <p>NO total count: &nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.Q1_Answer === 0)).length}</p>
+                    <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.q1_answer === 0)).length}</p>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <p>YES percentage:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.Q1_Answer === 1).length / resultData.length * 100))}%</p>
+                    <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%</p>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <p>NO percentage: &nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.Q1_Answer === 0).length / resultData.length * 100))}%</p>
+                    <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%</p>
                 </div>
             </div>
 

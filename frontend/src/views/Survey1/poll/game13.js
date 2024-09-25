@@ -108,12 +108,12 @@ function Game13() {
 
             {
                 resultData.length > 0 ? <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
-                    {/*<p style={{ fontWeight: 'bold' }}>0 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 0).length / resultData.length * 100))}%</p>*/}
-                    <p style={{ fontWeight: 'bold' }}>1 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 1).length / resultData.length * 100))}%</p>
-                    <p style={{ fontWeight: 'bold' }}>2 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 2).length / resultData.length * 100))}%</p>
-                    <p style={{ fontWeight: 'bold' }}>3 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 3).length / resultData.length * 100))}%</p>
-                    <p style={{ fontWeight: 'bold' }}>4 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 4).length / resultData.length * 100))}%</p>
-                    <p style={{ fontWeight: 'bold' }}>5 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 5).length / resultData.length * 100))}%</p>
+                    {/*<p style={{ fontWeight: 'bold' }}>0 percentage {Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%</p>*/}
+                    <p style={{ fontWeight: 'bold' }}>1 percentage {Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%</p>
+                    <p style={{ fontWeight: 'bold' }}>2 percentage {Math.round((resultData.filter(item => item.q1_answer === 2).length / resultData.length * 100))}%</p>
+                    <p style={{ fontWeight: 'bold' }}>3 percentage {Math.round((resultData.filter(item => item.q1_answer === 3).length / resultData.length * 100))}%</p>
+                    <p style={{ fontWeight: 'bold' }}>4 percentage {Math.round((resultData.filter(item => item.q1_answer === 4).length / resultData.length * 100))}%</p>
+                    <p style={{ fontWeight: 'bold' }}>5 percentage {Math.round((resultData.filter(item => item.q1_answer === 5).length / resultData.length * 100))}%</p>
                 </div>
                     :
                     ''

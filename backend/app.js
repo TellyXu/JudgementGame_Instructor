@@ -49,7 +49,7 @@ app.post('/submit', (req, res) => {
     // 将空字符串替换为默认值
     const values = [survey_number, version, parseInt(Q1, 10), parseInt(Q2, 10), text_val];
 
-    const query = `INSERT INTO survey_summary (survey_num, version, Q1_Answer, Q2_Answer, text_val) VALUES ($1, $2, $3, $4, $5)`;
+    const query = `INSERT INTO survey_summary (survey_num, version, q1_answer, q2_answer, text_val) VALUES ($1, $2, $3, $4, $5)`;
     pool.query(query, values, (error, results) => {
         if (error) {
             console.error('数据库查询错误:', error);

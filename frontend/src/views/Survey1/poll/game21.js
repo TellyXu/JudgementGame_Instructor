@@ -103,17 +103,17 @@
 //
 //             {
 //                 resultData.length > 0 ? <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
-//                     <p style={{ fontWeight: 'bold' }}>0 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 0).length / resultData.length * 100))}%</p>
-//                     <p style={{ fontWeight: 'bold' }}>1 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 1).length / resultData.length * 100))}%</p>
-//                     <p style={{ fontWeight: 'bold' }}>2 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 2).length / resultData.length * 100))}%</p>
-//                     <p style={{ fontWeight: 'bold' }}>3 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 3).length / resultData.length * 100))}%</p>
-//                     <p style={{ fontWeight: 'bold' }}>4 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 4).length / resultData.length * 100))}%</p>
-//                     <p style={{ fontWeight: 'bold' }}>5 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 5).length / resultData.length * 100))}%</p>
-//                     <p style={{ fontWeight: 'bold' }}>6 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 6).length / resultData.length * 100))}%</p>
-//                     <p style={{ fontWeight: 'bold' }}>7 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 7).length / resultData.length * 100))}%</p>
-//                     <p style={{ fontWeight: 'bold' }}>8 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 8).length / resultData.length * 100))}%</p>
-//                     <p style={{ fontWeight: 'bold' }}>9 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 9).length / resultData.length * 100))}%</p>
-//                     <p style={{ fontWeight: 'bold' }}>10 percentage {Math.round((resultData.filter(item => item.Q1_Answer === 10).length / resultData.length * 100))}%</p>
+//                     <p style={{ fontWeight: 'bold' }}>0 percentage {Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%</p>
+//                     <p style={{ fontWeight: 'bold' }}>1 percentage {Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%</p>
+//                     <p style={{ fontWeight: 'bold' }}>2 percentage {Math.round((resultData.filter(item => item.q1_answer === 2).length / resultData.length * 100))}%</p>
+//                     <p style={{ fontWeight: 'bold' }}>3 percentage {Math.round((resultData.filter(item => item.q1_answer === 3).length / resultData.length * 100))}%</p>
+//                     <p style={{ fontWeight: 'bold' }}>4 percentage {Math.round((resultData.filter(item => item.q1_answer === 4).length / resultData.length * 100))}%</p>
+//                     <p style={{ fontWeight: 'bold' }}>5 percentage {Math.round((resultData.filter(item => item.q1_answer === 5).length / resultData.length * 100))}%</p>
+//                     <p style={{ fontWeight: 'bold' }}>6 percentage {Math.round((resultData.filter(item => item.q1_answer === 6).length / resultData.length * 100))}%</p>
+//                     <p style={{ fontWeight: 'bold' }}>7 percentage {Math.round((resultData.filter(item => item.q1_answer === 7).length / resultData.length * 100))}%</p>
+//                     <p style={{ fontWeight: 'bold' }}>8 percentage {Math.round((resultData.filter(item => item.q1_answer === 8).length / resultData.length * 100))}%</p>
+//                     <p style={{ fontWeight: 'bold' }}>9 percentage {Math.round((resultData.filter(item => item.q1_answer === 9).length / resultData.length * 100))}%</p>
+//                     <p style={{ fontWeight: 'bold' }}>10 percentage {Math.round((resultData.filter(item => item.q1_answer === 10).length / resultData.length * 100))}%</p>
 //                 </div>
 //                     :
 //                     ''
@@ -359,27 +359,27 @@ function CombinedGame() {
                                 fontSize: '10px'
                             }}>
                                 {/*<p style={{fontWeight: 'bold'}}>0*/}
-                                {/*    percentage {Math.round((resultData1.filter(item => item.Q1_Answer === 0).length / resultData1.length * 100))}%</p>*/}
+                                {/*    percentage {Math.round((resultData1.filter(item => item.q1_answer === 0).length / resultData1.length * 100))}%</p>*/}
                                 <p style={{fontWeight: 'bold'}}>1
-                                    percentage {Math.round((resultData1.filter(item => item.Q1_Answer === 1).length / resultData1.length * 100))}%</p>
+                                    percentage {Math.round((resultData1.filter(item => item.q1_answer === 1).length / resultData1.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>2
-                                    percentage {Math.round((resultData1.filter(item => item.Q1_Answer === 2).length / resultData1.length * 100))}%</p>
+                                    percentage {Math.round((resultData1.filter(item => item.q1_answer === 2).length / resultData1.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>3
-                                    percentage {Math.round((resultData1.filter(item => item.Q1_Answer === 3).length / resultData1.length * 100))}%</p>
+                                    percentage {Math.round((resultData1.filter(item => item.q1_answer === 3).length / resultData1.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>4
-                                    percentage {Math.round((resultData1.filter(item => item.Q1_Answer === 4).length / resultData1.length * 100))}%</p>
+                                    percentage {Math.round((resultData1.filter(item => item.q1_answer === 4).length / resultData1.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>5
-                                    percentage {Math.round((resultData1.filter(item => item.Q1_Answer === 5).length / resultData1.length * 100))}%</p>
+                                    percentage {Math.round((resultData1.filter(item => item.q1_answer === 5).length / resultData1.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>6
-                                    percentage {Math.round((resultData1.filter(item => item.Q1_Answer === 6).length / resultData1.length * 100))}%</p>
+                                    percentage {Math.round((resultData1.filter(item => item.q1_answer === 6).length / resultData1.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>7
-                                    percentage {Math.round((resultData1.filter(item => item.Q1_Answer === 7).length / resultData1.length * 100))}%</p>
+                                    percentage {Math.round((resultData1.filter(item => item.q1_answer === 7).length / resultData1.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>8
-                                    percentage {Math.round((resultData1.filter(item => item.Q1_Answer === 8).length / resultData1.length * 100))}%</p>
+                                    percentage {Math.round((resultData1.filter(item => item.q1_answer === 8).length / resultData1.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>9
-                                    percentage {Math.round((resultData1.filter(item => item.Q1_Answer === 9).length / resultData1.length * 100))}%</p>
+                                    percentage {Math.round((resultData1.filter(item => item.q1_answer === 9).length / resultData1.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>10
-                                    percentage {Math.round((resultData1.filter(item => item.Q1_Answer === 10).length / resultData1.length * 100))}%</p>
+                                    percentage {Math.round((resultData1.filter(item => item.q1_answer === 10).length / resultData1.length * 100))}%</p>
                             </div>
                             :
                             ''
@@ -394,27 +394,27 @@ function CombinedGame() {
                                 fontSize: '10px'
                             }}>
                                 {/*<p style={{fontWeight: 'bold'}}>0*/}
-                                {/*    percentage {Math.round((resultData2.filter(item => item.Q1_Answer === 0).length / resultData2.length * 100))}%</p>*/}
+                                {/*    percentage {Math.round((resultData2.filter(item => item.q1_answer === 0).length / resultData2.length * 100))}%</p>*/}
                                 <p style={{fontWeight: 'bold'}}>1
-                                    percentage {Math.round((resultData2.filter(item => item.Q1_Answer === 1).length / resultData2.length * 100))}%</p>
+                                    percentage {Math.round((resultData2.filter(item => item.q1_answer === 1).length / resultData2.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>2
-                                    percentage {Math.round((resultData2.filter(item => item.Q1_Answer === 2).length / resultData2.length * 100))}%</p>
+                                    percentage {Math.round((resultData2.filter(item => item.q1_answer === 2).length / resultData2.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>3
-                                    percentage {Math.round((resultData2.filter(item => item.Q1_Answer === 3).length / resultData2.length * 100))}%</p>
+                                    percentage {Math.round((resultData2.filter(item => item.q1_answer === 3).length / resultData2.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>4
-                                    percentage {Math.round((resultData2.filter(item => item.Q1_Answer === 4).length / resultData2.length * 100))}%</p>
+                                    percentage {Math.round((resultData2.filter(item => item.q1_answer === 4).length / resultData2.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>5
-                                    percentage {Math.round((resultData2.filter(item => item.Q1_Answer === 5).length / resultData2.length * 100))}%</p>
+                                    percentage {Math.round((resultData2.filter(item => item.q1_answer === 5).length / resultData2.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>6
-                                    percentage {Math.round((resultData2.filter(item => item.Q1_Answer === 6).length / resultData2.length * 100))}%</p>
+                                    percentage {Math.round((resultData2.filter(item => item.q1_answer === 6).length / resultData2.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>7
-                                    percentage {Math.round((resultData2.filter(item => item.Q1_Answer === 7).length / resultData2.length * 100))}%</p>
+                                    percentage {Math.round((resultData2.filter(item => item.q1_answer === 7).length / resultData2.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>8
-                                    percentage {Math.round((resultData2.filter(item => item.Q1_Answer === 8).length / resultData2.length * 100))}%</p>
+                                    percentage {Math.round((resultData2.filter(item => item.q1_answer === 8).length / resultData2.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>9
-                                    percentage {Math.round((resultData2.filter(item => item.Q1_Answer === 9).length / resultData2.length * 100))}%</p>
+                                    percentage {Math.round((resultData2.filter(item => item.q1_answer === 9).length / resultData2.length * 100))}%</p>
                                 <p style={{fontWeight: 'bold'}}>10
-                                    percentage {Math.round((resultData2.filter(item => item.Q1_Answer === 10).length / resultData2.length * 100))}%</p>
+                                    percentage {Math.round((resultData2.filter(item => item.q1_answer === 10).length / resultData2.length * 100))}%</p>
                             </div>
                             :
                             ''

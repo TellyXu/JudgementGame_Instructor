@@ -110,6 +110,18 @@ function Dashboard({ show }) {
             });
     }
 
+    React.useEffect(() => {
+        console.log('resultData updated:', survey2Data);
+
+
+        console.log('resultData', survey2Data)
+
+
+        console.log('11 ', survey2Data.filter(item => item.version === 1).length);
+        console.log('22 ', survey2Data.filter(item => item.version === 1).reduce((acc, cur) => acc + (cur.q1_answer || 0), 0));
+        console.log('33 ', survey2Data.filter(item => item.version === 1).length);
+
+    }, [resultData]);  // Dependency array, re-run the effect when resultData changes
 
 
 
@@ -201,10 +213,10 @@ function Dashboard({ show }) {
                                         <p>
                                             Did Gandhi die before or after the age of <strong>144</strong>?
                                         </p>
-                                        {/* <PiA filter={[1, 0]} pData={p0} keyName='Q1_Answer' tag={['Before', 'After']} /> */}
+                                        {/* <PiA filter={[1, 0]} pData={p0} keyName='q1_answer' tag={['Before', 'After']} /> */}
                                         <hr></hr>
-                                        <p className="text-14">Before: {Math.round((p0.filter(item => item.Q1_Answer === 0).length / (_data.filter(item => item.survey_num === 1 && item.version === 1).length)) * 100)}%</p>
-                                        <p className="text-14">After: {Math.round((p0.filter(item => item.Q1_Answer === 1).length / (_data.filter(item => item.survey_num === 1 && item.version === 1).length)) * 100)}%</p>
+                                        <p className="text-14">Before: {Math.round((p0.filter(item => item.q1_answer === 0).length / (_data.filter(item => item.survey_num === 1 && item.version === 1).length)) * 100)}%</p>
+                                        <p className="text-14">After: {Math.round((p0.filter(item => item.q1_answer === 1).length / (_data.filter(item => item.survey_num === 1 && item.version === 1).length)) * 100)}%</p>
                                     </div>
                                     <div style={{
                                         marginLeft: '20px',
@@ -215,10 +227,10 @@ function Dashboard({ show }) {
                                         <p>
                                             Did Gandhi die before or after the age of <strong>32</strong>?
                                         </p>
-                                        {/* <PiA filter={[1, 0]} pData={p1} keyName='Q1_Answer' tag={['Before', 'After']} /> */}
+                                        {/* <PiA filter={[1, 0]} pData={p1} keyName='q1_answer' tag={['Before', 'After']} /> */}
                                         <hr></hr>
-                                        <p className="text-14">Before: {Math.round((p1.filter(item => item.Q1_Answer === 0).length / (_data.filter(item => item.survey_num === 1 && item.version === 2).length)) * 100)}%</p>
-                                        <p className="text-14">After: {Math.round((p1.filter(item => item.Q1_Answer === 1).length / (_data.filter(item => item.survey_num === 1 && item.version === 2).length)) * 100)}%</p>
+                                        <p className="text-14">Before: {Math.round((p1.filter(item => item.q1_answer === 0).length / (_data.filter(item => item.survey_num === 1 && item.version === 2).length)) * 100)}%</p>
+                                        <p className="text-14">After: {Math.round((p1.filter(item => item.q1_answer === 1).length / (_data.filter(item => item.survey_num === 1 && item.version === 2).length)) * 100)}%</p>
                                     </div>
 
 
@@ -234,19 +246,19 @@ function Dashboard({ show }) {
                                         </p>
                                         <hr></hr>
                                         <p className="text-14">Group 1 answer average age : {p2.length > 0 ?
-                                            (p2.reduce((acc, cur) => acc + (cur.Q2_Answer || 0), 0) / p2.length).toFixed(2)
+                                            (p2.reduce((acc, cur) => acc + (cur.q2_answer || 0), 0) / p2.length).toFixed(2)
                                             : "No data available"}</p>
 
 
                                         <p className="text-14">Group 2 answer average age :
                                             {p3.length > 0 ?
-                                            (p3.reduce((acc, cur) => acc + (cur.Q2_Answer || 0), 0) / p3.length).toFixed(2)
+                                            (p3.reduce((acc, cur) => acc + (cur.q2_answer || 0), 0) / p3.length).toFixed(2)
                                             : "No data available"}
                                             </p>
                                         <p className="text-14">Total average age :
 
                                         {p4.length > 0 ?
-                                            (p4.reduce((acc, cur) => acc + (cur.Q2_Answer || 0), 0) / p4.length).toFixed(2)
+                                            (p4.reduce((acc, cur) => acc + (cur.q2_answer || 0), 0) / p4.length).toFixed(2)
                                             : "No data available"}
                                             </p>
                                     </div>
@@ -262,38 +274,38 @@ function Dashboard({ show }) {
                                     <div>
                                         <h3>Group 1 answer average age:</h3>
                                         {p2.length > 0 ?
-                                            (p2.reduce((acc, cur) => acc + (cur.Q2_Answer || 0), 0) / p2.length).toFixed(2)
+                                            (p2.reduce((acc, cur) => acc + (cur.q2_answer || 0), 0) / p2.length).toFixed(2)
                                             : "No data available"}
 
                                         <h3>Group 2 answer average age:</h3>
                                         {p3.length > 0 ?
-                                            (p3.reduce((acc, cur) => acc + (cur.Q2_Answer || 0), 0) / p3.length).toFixed(2)
+                                            (p3.reduce((acc, cur) => acc + (cur.q2_answer || 0), 0) / p3.length).toFixed(2)
                                             : "No data available"}
                                         <h3>Total average age:</h3>
                                         {p4.length > 0 ?
-                                            (p4.reduce((acc, cur) => acc + (cur.Q2_Answer || 0), 0) / p4.length).toFixed(2)
+                                            (p4.reduce((acc, cur) => acc + (cur.q2_answer || 0), 0) / p4.length).toFixed(2)
                                             : "No data available"}
                                     </div>
 
 
                                     {/*<div>*/}
-                                    {/*    <Box pData={p2} name='Judgement 1 Group 1 answer' keyName='Q2_Answer' Xname=' '*/}
+                                    {/*    <Box pData={p2} name='Judgement 1 Group 1 answer' keyName='q2_answer' Xname=' '*/}
                                     {/*         Yname='age'/>*/}
                                     {/*</div>*/}
                                     {/*<div style={{marginLeft: '20px'}}>*/}
-                                    {/*    <Box pData={p3} name='Judgement 1 Group 2 answer' keyName='Q2_Answer' Xname=' '*/}
+                                    {/*    <Box pData={p3} name='Judgement 1 Group 2 answer' keyName='q2_answer' Xname=' '*/}
                                     {/*         Yname='age'/>*/}
                                     {/*</div>*/}
                                     {/*<div style={{ marginLeft: '20px' }}>*/}
                                     {/*    <DualBoxEchart*/}
-                                    {/*        pData1={p2} name1='Judgement 1 Group 1 answer' keyName1='Q2_Answer' Xname1=' ' Yname1='age'*/}
-                                    {/*        pData2={p3} name2='Judgement 1 Group 2 answer' keyName2='Q2_Answer' Xname2=' ' Yname2='age'*/}
+                                    {/*        pData1={p2} name1='Judgement 1 Group 1 answer' keyName1='q2_answer' Xname1=' ' Yname1='age'*/}
+                                    {/*        pData2={p3} name2='Judgement 1 Group 2 answer' keyName2='q2_answer' Xname2=' ' Yname2='age'*/}
                                     {/*    />*/}
                                     {/*</div>*/}
 
 
                                     {/*<div>*/}
-                                    {/*    <Box pData={p4} name='Judgement 1 Total answer' keyName='Q2_Answer' Xname=' '*/}
+                                    {/*    <Box pData={p4} name='Judgement 1 Total answer' keyName='q2_answer' Xname=' '*/}
                                     {/*         Yname='age'/>*/}
                                     {/*</div>
 
@@ -324,13 +336,13 @@ function Dashboard({ show }) {
                                         <hr></hr>
                                         <p className="text-14">Group 1 average :
                                             {survey2Data.filter(item => item.version === 1).length > 0 ?
-                                                (survey2Data.filter(item => item.version === 1).reduce((acc, cur) => acc + (cur.Q1_Answer || 0), 0) / survey2Data.filter(item => item.version === 1).length).toFixed(2)
+                                                (survey2Data.filter(item => item.version === 1).reduce((acc, cur) => acc + (cur.q1_answer || 0), 0) / survey2Data.filter(item => item.version === 1).length).toFixed(2)
                                                 : "No data available"}</p>
 
 
                                         {/*<Box pData={survey2Data.filter(item => item.version === 1)}*/}
                                         {/*     name='Judgement 2 Group 1 answer'*/}
-                                        {/*     keyName='Q1_Answer' Xname=' ' Yname='$'/>*/}
+                                        {/*     keyName='q1_answer' Xname=' ' Yname='$'/>*/}
                                     </div>
 
                                     <div className="bbg-white ml-20">
@@ -344,11 +356,11 @@ function Dashboard({ show }) {
                                         <hr></hr>
                                         <p className="text-14">Group 2 average :
                                             {survey2Data.filter(item => item.version === 2).length > 0 ?
-                                                (survey2Data.filter(item => item.version === 2).reduce((acc, cur) => acc + (cur.Q1_Answer || 0), 0) / survey2Data.filter(item => item.version === 2).length).toFixed(2)
+                                                (survey2Data.filter(item => item.version === 2).reduce((acc, cur) => acc + (cur.q1_answer || 0), 0) / survey2Data.filter(item => item.version === 2).length).toFixed(2)
                                                 : "No data available"}</p>
                                         {/*<Box pData={survey2Data.filter(item => item.version === 2)}*/}
                                         {/*     name='Judgement 2 Group 2 answer'*/}
-                                        {/*     keyName='Q1_Answer' Xname=' ' Yname='$'/>*/}
+                                        {/*     keyName='q1_answer' Xname=' ' Yname='$'/>*/}
                                     </div>
 
                                     <div className="bbg-white ml-20 mt-20">
@@ -358,7 +370,7 @@ function Dashboard({ show }) {
 
                                         <p className="text-18 text-center" >Total average :
                                             {survey2Data.length > 0 ?
-                                                (survey2Data.reduce((acc, cur) => acc + (cur.Q1_Answer || 0), 0) / survey2Data.length).toFixed(2)
+                                                (survey2Data.reduce((acc, cur) => acc + (cur.q1_answer || 0), 0) / survey2Data.length).toFixed(2)
                                                 : "No data available"}</p>
 
                                         {/*<CombinedBoxEchart*/}
@@ -366,12 +378,12 @@ function Dashboard({ show }) {
                                         {/*    dataGroup2={survey2Data.filter(item => item.version === 2)}*/}
                                         {/*    name1='Group 1'*/}
                                         {/*    name2='Group 2'*/}
-                                        {/*    keyName='Q1_Answer'*/}
+                                        {/*    keyName='q1_answer'*/}
                                         {/*/>*/}
 
 
                                         {/*<div>*/}
-                                        {/*    <Box pData={survey2Data.filter(item => item.version === 1 || item.version === 2)} name='Judgement 2 Total answer' keyName='Q1_Answer' Xname=' ' />*/}
+                                        {/*    <Box pData={survey2Data.filter(item => item.version === 1 || item.version === 2)} name='Judgement 2 Total answer' keyName='q1_answer' Xname=' ' />*/}
                                         {/*</div>*/}
                                     </div>
 
@@ -394,20 +406,20 @@ function Dashboard({ show }) {
                                             <p className="m-0 tips">You are shopping for a luxurious gray pinstripe suit for $425. You are about to buy it, and then another customer whispers that the exact same suit is on sale for $418 at another store 15 minutes away.</p>
                                         </div>
                                         {/* <PiA filter={[0, 1]} pData={survey4Data.filter(item => item.version === 1)}
-                                            name='survey4_Q1_Answer' keyName='Q1_Answer' tag={['YES', 'NO']} /> */}
+                                            name='survey4_q1_answer' keyName='q1_answer' tag={['YES', 'NO']} /> */}
                                         <hr></hr>
-                                        <p>YES: {Math.round((survey4Data.filter(item => item.Q1_Answer === 0 && item.version === 1).length / (survey4Data.filter(item => item.version === 1).length)) * 100)}%</p>
-                                        <p>NO: {Math.round((survey4Data.filter(item => item.Q1_Answer === 1 && item.version === 1).length / (survey4Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>YES: {Math.round((survey4Data.filter(item => item.q1_answer === 0 && item.version === 1).length / (survey4Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>NO: {Math.round((survey4Data.filter(item => item.q1_answer === 1 && item.version === 1).length / (survey4Data.filter(item => item.version === 1).length)) * 100)}%</p>
                                     </div>
                                     <div className="bbg-white-400 ml-20">
                                         <div class={'container-tips text-14'} style={{height:'150px'}}>
                                             <p className="m-0 tips">You go to a store and find a nice pen for $25. Then you remember that the same pen is on sale for $18 at another store 15 minutes away.</p>
                                         </div>
                                         {/* <PiA filter={[0, 1]} pData={survey4Data.filter(item => item.version === 2)}
-                                            name='survey4_Q2_Answer' keyName='Q1_Answer' tag={['YES', 'NO']} /> */}
+                                            name='survey4_q2_answer' keyName='q1_answer' tag={['YES', 'NO']} /> */}
                                         <hr></hr>
-                                        <p>YES: {Math.round((survey4Data.filter(item => item.Q1_Answer === 0 && item.version === 2).length / (survey4Data.filter(item => item.version === 2).length)) * 100)}%</p>
-                                        <p>NO: {Math.round((survey4Data.filter(item => item.Q1_Answer === 1 && item.version === 2).length / (survey4Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>YES: {Math.round((survey4Data.filter(item => item.q1_answer === 0 && item.version === 2).length / (survey4Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>NO: {Math.round((survey4Data.filter(item => item.q1_answer === 1 && item.version === 2).length / (survey4Data.filter(item => item.version === 2).length)) * 100)}%</p>
                                     </div>
                                 </div>
                             </div>
@@ -431,10 +443,10 @@ function Dashboard({ show }) {
                                             <p className="m-0 text-left mt-4">B: with 1/3 probability, nobody dies; with 2/3 probability all 600 will die.</p>
                                         </div>
                                         {/* <PiA filter={[1, 2]} pData={survey3Data.filter(item => item.version === 1)}
-                                            name='survey3_Q1_Answer' keyName='Q1_Answer' tag={['A', 'B']} /> */}
+                                            name='survey3_q1_answer' keyName='q1_answer' tag={['A', 'B']} /> */}
                                         <hr></hr>
-                                        <p>A: {Math.round((survey3Data.filter(item => item.Q1_Answer === 1 && item.version === 1).length / (survey3Data.filter(item => item.version === 1).length)) * 100)}%</p>
-                                        <p>B: {Math.round((survey3Data.filter(item => item.Q1_Answer === 2 && item.version === 1).length / (survey3Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>A: {Math.round((survey3Data.filter(item => item.q1_answer === 1 && item.version === 1).length / (survey3Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>B: {Math.round((survey3Data.filter(item => item.q1_answer === 2 && item.version === 1).length / (survey3Data.filter(item => item.version === 1).length)) * 100)}%</p>
                                     </div>
                                     <div className="bbg-white ml-20">
                                         <div class={'container-tips text-14'}>
@@ -442,10 +454,10 @@ function Dashboard({ show }) {
                                             <p className="m-0 text-left mt-4">D: with 1/3 probability, all 600 will be saved, with 2/3 probability nobody of the 600 will be saved. </p>
                                         </div>
                                         {/* <PiA filter={[3, 4]} pData={survey3Data.filter(item => item.version === 2)}
-                                            name='survey3_Q2_Answer' keyName='Q1_Answer' tag={['C', 'D']} /> */}
+                                            name='survey3_q2_answer' keyName='q1_answer' tag={['C', 'D']} /> */}
                                         <hr></hr>
-                                        <p>C: {Math.round((survey3Data.filter(item => item.Q1_Answer === 3 && item.version === 2).length / (survey3Data.filter(item => item.version === 2).length)) * 100)}%</p>
-                                        <p>D: {Math.round((survey3Data.filter(item => item.Q1_Answer === 4 && item.version === 2).length / (survey3Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>C: {Math.round((survey3Data.filter(item => item.q1_answer === 3 && item.version === 2).length / (survey3Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>D: {Math.round((survey3Data.filter(item => item.q1_answer === 4 && item.version === 2).length / (survey3Data.filter(item => item.version === 2).length)) * 100)}%</p>
                                     </div>
                                 </div>
                             </div>
@@ -464,10 +476,10 @@ function Dashboard({ show }) {
 
                                 <div style={{ display: "flex", flexWrap: 'wrap', justifyContent: 'center' }}>
                                     <div className="bbg-white">
-                                        {/* <PiA filter={[0, 1]} pData={survey5Data} name='survey2_Q1_Answer' keyName='Q1_Answer'
+                                        {/* <PiA filter={[0, 1]} pData={survey5Data} name='survey2_q1_answer' keyName='q1_answer'
                                             tag={['Golf', 'Soccer']} /> */}
-                                        <p>Golf: {Math.round((survey5Data.filter(item => item.Q1_Answer === 0).length / (survey5Data.length)) * 100)}%</p>
-                                        <p>Soccer: {Math.round((survey5Data.filter(item => item.Q1_Answer === 1).length / (survey5Data.length)) * 100)}%</p>
+                                        <p>Golf: {Math.round((survey5Data.filter(item => item.q1_answer === 0).length / (survey5Data.length)) * 100)}%</p>
+                                        <p>Soccer: {Math.round((survey5Data.filter(item => item.q1_answer === 1).length / (survey5Data.length)) * 100)}%</p>
                                     </div>
                                 </div>
                             </div>
@@ -492,15 +504,15 @@ function Dashboard({ show }) {
                                         <hr/>
                                         {/*<PiA isDiyData filter={[1, 2, 3, 4, 5, 6]}*/}
                                         {/*     pData={survey6Data.filter(item => item.version === 1)}*/}
-                                        {/*     name='survey4_Q1_Answer'*/}
-                                        {/*     keyName='Q1_Answer' tag={['1', '2', '3', '4', '5', '6']}/>*/}
+                                        {/*     name='survey4_q1_answer'*/}
+                                        {/*     keyName='q1_answer' tag={['1', '2', '3', '4', '5', '6']}/>*/}
 
-                                        <p>1: {Math.round((survey6Data.filter(item => item.Q1_Answer === 1 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
-                                        <p>2: {Math.round((survey6Data.filter(item => item.Q1_Answer === 2 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
-                                        <p>3: {Math.round((survey6Data.filter(item => item.Q1_Answer === 3 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
-                                        <p>4: {Math.round((survey6Data.filter(item => item.Q1_Answer === 4 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
-                                        <p>5: {Math.round((survey6Data.filter(item => item.Q1_Answer === 5 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
-                                        <p>6: {Math.round((survey6Data.filter(item => item.Q1_Answer === 6 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>1: {Math.round((survey6Data.filter(item => item.q1_answer === 1 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>2: {Math.round((survey6Data.filter(item => item.q1_answer === 2 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>3: {Math.round((survey6Data.filter(item => item.q1_answer === 3 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>4: {Math.round((survey6Data.filter(item => item.q1_answer === 4 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>5: {Math.round((survey6Data.filter(item => item.q1_answer === 5 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                        <p>6: {Math.round((survey6Data.filter(item => item.q1_answer === 6 && item.version === 1).length / (survey6Data.filter(item => item.version === 1).length)) * 100)}%</p>
 
 
                                     </div>
@@ -513,15 +525,15 @@ function Dashboard({ show }) {
                                         <hr/>
                                         {/*<PiA isDiyData filter={[1, 2, 3, 4, 5, 6]}*/}
                                         {/*     pData={survey6Data.filter(item => item.version === 2)}*/}
-                                        {/*     name='survey4_Q2_Answer'*/}
-                                        {/*     keyName='Q1_Answer' tag={['1', '2', '3', '4', '5', '6']}/>*/}
+                                        {/*     name='survey4_q2_answer'*/}
+                                        {/*     keyName='q1_answer' tag={['1', '2', '3', '4', '5', '6']}/>*/}
 
-                                        <p>1: {Math.round((survey6Data.filter(item => item.Q1_Answer === 1 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
-                                        <p>2: {Math.round((survey6Data.filter(item => item.Q1_Answer === 2 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
-                                        <p>3: {Math.round((survey6Data.filter(item => item.Q1_Answer === 3 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
-                                        <p>4: {Math.round((survey6Data.filter(item => item.Q1_Answer === 4 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
-                                        <p>5: {Math.round((survey6Data.filter(item => item.Q1_Answer === 5 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
-                                        <p>6: {Math.round((survey6Data.filter(item => item.Q1_Answer === 6 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>1: {Math.round((survey6Data.filter(item => item.q1_answer === 1 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>2: {Math.round((survey6Data.filter(item => item.q1_answer === 2 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>3: {Math.round((survey6Data.filter(item => item.q1_answer === 3 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>4: {Math.round((survey6Data.filter(item => item.q1_answer === 4 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>5: {Math.round((survey6Data.filter(item => item.q1_answer === 5 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                        <p>6: {Math.round((survey6Data.filter(item => item.q1_answer === 6 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
                                     </div>
                                 </div>
 
@@ -540,10 +552,10 @@ function Dashboard({ show }) {
                                             <h5 style={{ marginBottom: 0 }}>1-1</h5>
                                             <p style={{ marginBottom: 0 }}>Have you personally used an AI productivity tool?</p>
                                             {/* <PiA filter={[0, 1]} pData={survey7Data.filter(item => item.version === 1)}
-                                                name='survey4_Q1_Answer' keyName='Q1_Answer' tag={['YES', 'NO']} /> */}
+                                                name='survey4_q1_answer' keyName='q1_answer' tag={['YES', 'NO']} /> */}
                                             <hr />
-                                            <p>YES: {Math.round((survey7Data.filter(item => item.Q1_Answer === 0 && item.version === 1).length / (survey7Data.filter(item => item.version === 1).length)) * 100)}%</p>
-                                            <p>NO: {Math.round((survey7Data.filter(item => item.Q1_Answer === 1 && item.version === 1).length / (survey7Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                            <p>YES: {Math.round((survey7Data.filter(item => item.q1_answer === 0 && item.version === 1).length / (survey7Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                            <p>NO: {Math.round((survey7Data.filter(item => item.q1_answer === 1 && item.version === 1).length / (survey7Data.filter(item => item.version === 1).length)) * 100)}%</p>
                                         </div>
                                     </div>
                                     <div style={{ marginLeft: '50px', textAlign: 'center', background: 'white', color: 'black', padding: '10px', borderRadius: '4px' }}>
@@ -575,14 +587,14 @@ function Dashboard({ show }) {
                                             <div>
                                                 {/* <PiA isDiyData filter={[0, 1, 2, 3, 4, 5]}
                                                     pData={survey7Data.filter(item => item.version === 3)} name='poll 1-3'
-                                                    keyName='Q1_Answer' tag={['0', '1', '2', '3', '4', '5']} /> */}
+                                                    keyName='q1_answer' tag={['0', '1', '2', '3', '4', '5']} /> */}
                                                 <hr />
-                                                {/*<p>0: {Math.round((survey7Data.filter(item => item.Q1_Answer === 0 && item.version === 3).length / (survey7Data.filter(item => item.version === 3).length)) * 100)}%</p>*/}
-                                                <p>1: {Math.round((survey7Data.filter(item => item.Q1_Answer === 1 && item.version === 3).length / (survey7Data.filter(item => item.version === 3).length)) * 100)}%</p>
-                                                <p>2: {Math.round((survey7Data.filter(item => item.Q1_Answer === 2 && item.version === 3).length / (survey7Data.filter(item => item.version === 3).length)) * 100)}%</p>
-                                                <p>3: {Math.round((survey7Data.filter(item => item.Q1_Answer === 3 && item.version === 3).length / (survey7Data.filter(item => item.version === 3).length)) * 100)}%</p>
-                                                <p>4: {Math.round((survey7Data.filter(item => item.Q1_Answer === 4 && item.version === 3).length / (survey7Data.filter(item => item.version === 3).length)) * 100)}%</p>
-                                                <p>5: {Math.round((survey7Data.filter(item => item.Q1_Answer === 5 && item.version === 3).length / (survey7Data.filter(item => item.version === 3).length)) * 100)}%</p>
+                                                {/*<p>0: {Math.round((survey7Data.filter(item => item.q1_answer === 0 && item.version === 3).length / (survey7Data.filter(item => item.version === 3).length)) * 100)}%</p>*/}
+                                                <p>1: {Math.round((survey7Data.filter(item => item.q1_answer === 1 && item.version === 3).length / (survey7Data.filter(item => item.version === 3).length)) * 100)}%</p>
+                                                <p>2: {Math.round((survey7Data.filter(item => item.q1_answer === 2 && item.version === 3).length / (survey7Data.filter(item => item.version === 3).length)) * 100)}%</p>
+                                                <p>3: {Math.round((survey7Data.filter(item => item.q1_answer === 3 && item.version === 3).length / (survey7Data.filter(item => item.version === 3).length)) * 100)}%</p>
+                                                <p>4: {Math.round((survey7Data.filter(item => item.q1_answer === 4 && item.version === 3).length / (survey7Data.filter(item => item.version === 3).length)) * 100)}%</p>
+                                                <p>5: {Math.round((survey7Data.filter(item => item.q1_answer === 5 && item.version === 3).length / (survey7Data.filter(item => item.version === 3).length)) * 100)}%</p>
 
 
                                             </div>
@@ -616,26 +628,26 @@ function Dashboard({ show }) {
 
                                                 {/* <PiA isDiyData filter={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
                                                     pData={survey8Data.filter(item => item.version === 1)} name='poll 2-1'
-                                                    keyName='Q1_Answer' tag={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']} /> */}
+                                                    keyName='q1_answer' tag={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']} /> */}
 
                                                 <p>{
                                                     (
                                                         [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].reduce((sum, answer) =>
-                                                            sum + (answer * survey8Data.filter(item => item.Q1_Answer === answer && item.version === 1).length), 0)
+                                                            sum + (answer * survey8Data.filter(item => item.q1_answer === answer && item.version === 1).length), 0)
                                                         / survey8Data.filter(item => item.version === 1).length
                                                     ).toFixed(2)
                                                 }
                                                 </p>
-                                                {/*<p>1: {Math.round((survey8Data.filter(item => item.Q1_Answer === 1 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                                {/*<p>1: {Math.round((survey8Data.filter(item => item.Q1_Answer === 1 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                                {/*<p>3: {Math.round((survey8Data.filter(item => item.Q1_Answer === 3 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                                {/*<p>4: {Math.round((survey8Data.filter(item => item.Q1_Answer === 4 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                                {/*<p>5: {Math.round((survey8Data.filter(item => item.Q1_Answer === 5 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                                {/*<p>6: {Math.round((survey8Data.filter(item => item.Q1_Answer === 6 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                                {/*<p>7: {Math.round((survey8Data.filter(item => item.Q1_Answer === 7 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                                {/*<p>8: {Math.round((survey8Data.filter(item => item.Q1_Answer === 8 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                                {/*<p>9: {Math.round((survey8Data.filter(item => item.Q1_Answer === 9 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
-                                                {/*<p>10: {Math.round((survey8Data.filter(item => item.Q1_Answer === 10 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
+                                                {/*<p>1: {Math.round((survey8Data.filter(item => item.q1_answer === 1 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
+                                                {/*<p>1: {Math.round((survey8Data.filter(item => item.q1_answer === 1 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
+                                                {/*<p>3: {Math.round((survey8Data.filter(item => item.q1_answer === 3 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
+                                                {/*<p>4: {Math.round((survey8Data.filter(item => item.q1_answer === 4 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
+                                                {/*<p>5: {Math.round((survey8Data.filter(item => item.q1_answer === 5 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
+                                                {/*<p>6: {Math.round((survey8Data.filter(item => item.q1_answer === 6 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
+                                                {/*<p>7: {Math.round((survey8Data.filter(item => item.q1_answer === 7 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
+                                                {/*<p>8: {Math.round((survey8Data.filter(item => item.q1_answer === 8 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
+                                                {/*<p>9: {Math.round((survey8Data.filter(item => item.q1_answer === 9 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
+                                                {/*<p>10: {Math.round((survey8Data.filter(item => item.q1_answer === 10 && item.version === 1).length / (survey8Data.filter(item => item.version === 1).length)) * 100)}%</p>*/}
                                             </div>
                                         </div>
                                         <div style={{textAlign: 'center', marginLeft: '30px'}}>
@@ -643,27 +655,27 @@ function Dashboard({ show }) {
                                             <div>
                                                 {/* <PiA isDiyData filter={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
                                                     pData={survey8Data.filter(item => item.version === 2)} name='poll 2-2'
-                                                    keyName='Q1_Answer' tag={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']} /> */}
+                                                    keyName='q1_answer' tag={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']} /> */}
 
                                                 <p>{
                                                     (
                                                         [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].reduce((sum, answer) =>
-                                                            sum + (answer * survey8Data.filter(item => item.Q1_Answer === answer && item.version === 2).length), 0)
+                                                            sum + (answer * survey8Data.filter(item => item.q1_answer === answer && item.version === 2).length), 0)
                                                         / survey8Data.filter(item => item.version === 2).length
                                                     ).toFixed(2)
                                                 }
                                                 </p>
 
-                                                {/*<p>1: {Math.round((survey8Data.filter(item => item.Q1_Answer === 1 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                                {/*<p>2: {Math.round((survey8Data.filter(item => item.Q1_Answer === 2 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                                {/*<p>3: {Math.round((survey8Data.filter(item => item.Q1_Answer === 3 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                                {/*<p>4: {Math.round((survey8Data.filter(item => item.Q1_Answer === 4 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                                {/*<p>5: {Math.round((survey8Data.filter(item => item.Q1_Answer === 5 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                                {/*<p>6: {Math.round((survey8Data.filter(item => item.Q1_Answer === 6 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                                {/*<p>7: {Math.round((survey8Data.filter(item => item.Q1_Answer === 7 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                                {/*<p>8: {Math.round((survey8Data.filter(item => item.Q1_Answer === 8 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                                {/*<p>9: {Math.round((survey8Data.filter(item => item.Q1_Answer === 9 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
-                                                {/*<p>10: {Math.round((survey8Data.filter(item => item.Q1_Answer === 10 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
+                                                {/*<p>1: {Math.round((survey8Data.filter(item => item.q1_answer === 1 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
+                                                {/*<p>2: {Math.round((survey8Data.filter(item => item.q1_answer === 2 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
+                                                {/*<p>3: {Math.round((survey8Data.filter(item => item.q1_answer === 3 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
+                                                {/*<p>4: {Math.round((survey8Data.filter(item => item.q1_answer === 4 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
+                                                {/*<p>5: {Math.round((survey8Data.filter(item => item.q1_answer === 5 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
+                                                {/*<p>6: {Math.round((survey8Data.filter(item => item.q1_answer === 6 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
+                                                {/*<p>7: {Math.round((survey8Data.filter(item => item.q1_answer === 7 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
+                                                {/*<p>8: {Math.round((survey8Data.filter(item => item.q1_answer === 8 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
+                                                {/*<p>9: {Math.round((survey8Data.filter(item => item.q1_answer === 9 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
+                                                {/*<p>10: {Math.round((survey8Data.filter(item => item.q1_answer === 10 && item.version === 2).length / (survey8Data.filter(item => item.version === 2).length)) * 100)}%</p>*/}
                                             </div>
                                         </div>
                                     </div>
@@ -682,11 +694,11 @@ function Dashboard({ show }) {
                                             <div>
                                                 {/* <PiA isDiyData filter={[0, 1, 2]}
                                                     pData={survey9Data.filter(item => item.version === 1)} name='poll 3-1'
-                                                    keyName='Q1_Answer' tag={['Not likely', 'Don’t know', 'Likely']} /> */}
+                                                    keyName='q1_answer' tag={['Not likely', 'Don’t know', 'Likely']} /> */}
                                                 <hr />
-                                                <p>Not likely: {Math.round((survey9Data.filter(item => item.Q1_Answer === 0 && item.version === 1).length / (survey9Data.filter(item => item.version === 1).length)) * 100)}%</p>
-                                                <p>Don’t know: {Math.round((survey9Data.filter(item => item.Q1_Answer === 1 && item.version === 1).length / (survey9Data.filter(item => item.version === 1).length)) * 100)}%</p>
-                                                <p>Likely: {Math.round((survey9Data.filter(item => item.Q1_Answer === 2 && item.version === 1).length / (survey9Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                                <p>Not likely: {Math.round((survey9Data.filter(item => item.q1_answer === 0 && item.version === 1).length / (survey9Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                                <p>Don’t know: {Math.round((survey9Data.filter(item => item.q1_answer === 1 && item.version === 1).length / (survey9Data.filter(item => item.version === 1).length)) * 100)}%</p>
+                                                <p>Likely: {Math.round((survey9Data.filter(item => item.q1_answer === 2 && item.version === 1).length / (survey9Data.filter(item => item.version === 1).length)) * 100)}%</p>
                                             </div>
                                         </div>
                                         <div style={{ textAlign: 'center', marginLeft: '30px', background: 'white', color: 'black', padding: '10px', borderRadius: '4px' }}>
@@ -695,11 +707,11 @@ function Dashboard({ show }) {
                                             <div>
                                                 {/* <PiA isDiyData filter={[0, 1, 2]}
                                                     pData={survey9Data.filter(item => item.version === 2)} name='poll 3-2'
-                                                    keyName='Q1_Answer' tag={['Not likely', 'Don’t know', 'Likely']} /> */}
+                                                    keyName='q1_answer' tag={['Not likely', 'Don’t know', 'Likely']} /> */}
                                                 <hr />
-                                                <p>Not likely: {Math.round((survey9Data.filter(item => item.Q1_Answer === 0 && item.version === 2).length / (survey9Data.filter(item => item.version === 2).length)) * 100)}%</p>
-                                                <p>Don’t know: {Math.round((survey9Data.filter(item => item.Q1_Answer === 1 && item.version === 2).length / (survey9Data.filter(item => item.version === 2).length)) * 100)}%</p>
-                                                <p>Likely: {Math.round((survey9Data.filter(item => item.Q1_Answer === 2 && item.version === 2).length / (survey9Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                                <p>Not likely: {Math.round((survey9Data.filter(item => item.q1_answer === 0 && item.version === 2).length / (survey9Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                                <p>Don’t know: {Math.round((survey9Data.filter(item => item.q1_answer === 1 && item.version === 2).length / (survey9Data.filter(item => item.version === 2).length)) * 100)}%</p>
+                                                <p>Likely: {Math.round((survey9Data.filter(item => item.q1_answer === 2 && item.version === 2).length / (survey9Data.filter(item => item.version === 2).length)) * 100)}%</p>
                                             </div>
                                         </div>
                                     </div>

@@ -105,9 +105,9 @@ function Game31() {
                 resultData.length > 0 ? <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
                     <h3>Result</h3>
                     <div style={{ height: '17rem', overflow: 'auto' }}>
-                        <p style={{ fontWeight: 'bold' }}>Not likely percentage {Math.round((resultData.filter(item => item.Q1_Answer === 0).length / resultData.length * 100))}%</p>
-                        <p style={{ fontWeight: 'bold' }}>Don’t know percentage {Math.round((resultData.filter(item => item.Q1_Answer === 1).length / resultData.length * 100))}%</p>
-                        <p style={{ fontWeight: 'bold' }}>Likely percentage {Math.round((resultData.filter(item => item.Q1_Answer === 2).length / resultData.length * 100))}%</p>
+                        <p style={{ fontWeight: 'bold' }}>Not likely percentage {Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%</p>
+                        <p style={{ fontWeight: 'bold' }}>Don’t know percentage {Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%</p>
+                        <p style={{ fontWeight: 'bold' }}>Likely percentage {Math.round((resultData.filter(item => item.q1_answer === 2).length / resultData.length * 100))}%</p>
                     </div>
                 </div>
                     :

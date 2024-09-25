@@ -133,12 +133,12 @@ function GandhiSurvey() {
             <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
                 <h3>Result</h3>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p style={{ width: '', textAlign: 'left' }}>Before:&nbsp;&nbsp;</p> <p style={{ marginRight: '60px' }}>{(resultData.filter(item => item.Q1_Answer === 0).length)} ({Math.round((resultData.filter(item => item.Q1_Answer === 0).length / resultData.length * 100))}%)</p>
-                    <p style={{ width: '', textAlign: 'left' }}>After:&nbsp;&nbsp;</p> <p> {(resultData.filter(item => item.Q1_Answer === 1).length)}({Math.round((resultData.filter(item => item.Q1_Answer === 1).length / resultData.length * 100))}%)</p>
+                    <p style={{ width: '', textAlign: 'left' }}>Before:&nbsp;&nbsp;</p> <p style={{ marginRight: '60px' }}>{(resultData.filter(item => item.q1_answer === 0).length)} ({Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%)</p>
+                    <p style={{ width: '', textAlign: 'left' }}>After:&nbsp;&nbsp;</p> <p> {(resultData.filter(item => item.q1_answer === 1).length)}({Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%)</p>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <p>Average age:&nbsp;&nbsp;</p>
-                    <p>{Math.round(getAvg(resultData.map(item => item.Q2_Answer)))}</p>
+                    <p>{Math.round(getAvg(resultData.map(item => item.q2_answer)))}</p>
                 </div>
             </div>
 

@@ -71,12 +71,26 @@ function GandhiSurvey() {
                 console.log('data' + code, data)
                 if (code === 200) {
                     setResultData(data.filter(item => item.survey_num === 1 && item.version === 2))
+                    console.log('resultData', resultData)
                     return
                 }
                 alert('Data loading error')
 
             });
     }
+
+    React.useEffect(() => {
+        console.log('resultData updated:', resultData);
+
+        console.log('Entries with q1_answer === 0:', resultData.filter(item => item.q1_answer === 0));
+        console.log('Entries with q1_answer === 1:', resultData.filter(item => item.q1_answer === 1));
+
+
+        console.log('resultData0', resultData.filter(item => item.q1_answer === 0).length);
+        console.log('resultData1', resultData.filter(item => item.q1_answer === 1).length);
+        console.log('resultDatatotal', resultData.length);
+        console.log('resultData/', Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100)));
+    }, [resultData]);  // Dependency array, re-run the effect when resultData changes
 
     const getAvg = (values) => {
         if (values.length === 0) {
@@ -126,12 +140,12 @@ function GandhiSurvey() {
             <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
                 <h3>Result</h3>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p style={{ width: '', textAlign: 'left' }}>Before:&nbsp;&nbsp;</p> <p style={{ marginRight: '60px' }}> {(resultData.filter(item => item.Q1_Answer === 0).length)} ({Math.round((resultData.filter(item => item.Q1_Answer === 0).length / resultData.length * 100))}%)</p>
-                    <p style={{ width: '', textAlign: 'left' }}>After:&nbsp;&nbsp;</p> <p> {(resultData.filter(item => item.Q1_Answer === 1).length)} ({Math.round((resultData.filter(item => item.Q1_Answer === 1).length / resultData.length * 100))}%)</p>
+                    <p style={{ width: '', textAlign: 'left' }}>Before:&nbsp;&nbsp;</p> <p style={{ marginRight: '60px' }}> {(resultData.filter(item => item.q1_answer === 0).length)} ({Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%)</p>
+                    <p style={{ width: '', textAlign: 'left' }}>After:&nbsp;&nbsp;</p> <p> {(resultData.filter(item => item.q1_answer === 1).length)} ({Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%)</p>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <p>Average age:&nbsp;&nbsp;</p>
-                    <p>{Math.round(getAvg(resultData.map(item => item.Q2_Answer)))}</p>
+                    <p>{Math.round(getAvg(resultData.map(item => item.q2_answer)))}</p>
                 </div>
             </div>
 

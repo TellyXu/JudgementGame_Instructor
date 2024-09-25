@@ -119,7 +119,7 @@ function Game61() {
                 <h3>Result</h3>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <p>Average score:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round(getAvg(resultData.map(item => item.Q1_Answer)))}</p>
+                    <p style={{ fontWeight: 'bold' }}>{Math.round(getAvg(resultData.map(item => item.q1_answer)))}</p>
                 </div>
             </div>
 
