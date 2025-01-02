@@ -130,7 +130,8 @@ function GandhiSurvey() {
                 </Col>
             </Row>
 
-            <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
+
+            {/* <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
                 <h3>Result</h3>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <p style={{ width: '', textAlign: 'left' }}>Before:&nbsp;&nbsp;</p> <p style={{ marginRight: '60px' }}>{(resultData.filter(item => item.q1_answer === 0).length)} ({Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%)</p>
@@ -140,6 +141,9 @@ function GandhiSurvey() {
                     <p>Average age:&nbsp;&nbsp;</p>
                     <p>{Math.round(getAvg(resultData.map(item => item.q2_answer)))}</p>
                 </div>
+            </div> */}
+            <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
+                <h3>Your response: {ageComparison}, {gandhiAge} years</h3>
             </div>
 
 
@@ -149,24 +153,30 @@ function GandhiSurvey() {
                 type="submit"
                 style={{ marginRight: '20px', display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
 
-            <Button className="btn-round pull-right"
+            {/* <Button className="btn-round pull-right"
                 color="info"
-                    type="button"
-                    onClick={e=>{
-                        e.preventDefault()
-                        getResult()
-                    }}
-                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >Refresh result</Button>
+                type="button"
+                onClick={e => {
+                    e.preventDefault()
+                    getResult()
+                }}
+                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >
+                Refresh result
+            </Button> */}
 
             <Button className="btn-round pull-right"
-        color="info"
-        style={{ marginRight: '20px' }}
-        onClick={(e) => {
-            e.preventDefault();
-            navigate('/presentation');
-        }}>
-    Home Page
-</Button>
+                color="info"
+                style={{ marginRight: '20px' }}
+                onClick={(e) => {
+                    e.preventDefault();
+                    navigate('/presentation');
+                }}>
+                Home Page
+            </Button>
+
+            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white' }} >
+                Please wait for Instructor
+            </div>
 
 
         </form>

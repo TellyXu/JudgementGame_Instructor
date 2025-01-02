@@ -116,15 +116,15 @@ function Game31() {
 
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? false : true}
-                    onClick={event => {
-                        event.preventDefault();
-                        setSubmitDisabled(false);
-                        navigate('/poll_32');
-                    }}
-                    color="success"
-                    type="submit"
-                    style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >
-                 <>Next question <span style={{ fontWeight: 'bold' }}>1/2</span></>
+                onClick={event => {
+                    event.preventDefault();
+                    setSubmitDisabled(false);
+                    navigate('/poll_32');
+                }}
+                color="success"
+                type="submit"
+                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >
+                <>Next question <span style={{ fontWeight: 'bold' }}>1/2</span></>
             </Button>
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
@@ -132,14 +132,16 @@ function Game31() {
                 type="submit"
                 style={{ marginRight: '20px', display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
 
-            <Button className="btn-round pull-right" disabled={submitDisabled ? false : true}
+            {/* <Button className="btn-round pull-right" disabled={submitDisabled ? false : true}
                 color="info"
                 type="submit"
                 onClick={_ => {
                     _.preventDefault()
                     getResult()
                 }}
-                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >Refresh result</Button>
+                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >
+                Refresh result
+            </Button> */}
 
             <Button className="btn-round pull-right"
                 color="info"
@@ -148,8 +150,13 @@ function Game31() {
                     e.preventDefault();
                     navigate('/presentation');
                 }}>
-            Home Page
+                Home Page
             </Button>
+
+            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white' }} >
+                Please wait for Instructor
+            </div>
+
         </form >
     );
 }

@@ -117,14 +117,14 @@ function Game12() {
                     <h3>Result</h3>
                     <div style={{ height: '17rem', overflow: 'auto' }}>
 
-                            {uniqueNormalizedValues().map(item => (
-                                    <div key={item} style={{ display: 'flex', justifyContent: 'center' }}>
-                                        <div style={{ display: 'flex' }}>
-                                            <p style={{ width: '150px' }}>{item}</p>
-                                            <p>repeat: {repeatCount(item)}</p>
-                                        </div>
-                                    </div>
-                                ))}
+                        {uniqueNormalizedValues().map(item => (
+                            <div key={item} style={{ display: 'flex', justifyContent: 'center' }}>
+                                <div style={{ display: 'flex' }}>
+                                    <p style={{ width: '150px' }}>{item}</p>
+                                    <p>repeat: {repeatCount(item)}</p>
+                                </div>
+                            </div>
+                        ))}
 
                     </div>
                 </div>
@@ -149,14 +149,20 @@ function Game12() {
                 type="submit"
                 style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >Next question <span style={{ fontWeight: 'bold' }}>2/3</span></Button>
 
-            <Button className="btn-round pull-right"
+            {/* <Button className="btn-round pull-right"
                 color="info"
                 type="submit"
                 onClick={_ => {
                     _.preventDefault()
                     getResult()
                 }}
-                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >Refresh result</Button>
+                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >
+                    Refresh result
+            </Button> */}
+
+            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white' }} >
+                Please wait for Instructor
+            </div>
 
         </form>
     );

@@ -79,7 +79,7 @@ function Game62() {
 
         console.log('Entries with q1_answer === 0:', resultData.map(item => item.q1_answer));
 
-        console.log('resultData/',         Math.round(getAvg(resultData.map(item => item.q1_answer))));
+        console.log('resultData/', Math.round(getAvg(resultData.map(item => item.q1_answer))));
     }, [resultData]);  // Dependency array, re-run the effect when resultData changes
 
 
@@ -140,26 +140,32 @@ function Game62() {
             <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
                 color="info"
                 type="submit"
-                style={{ marginRight: '20px', display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
+                style={{ display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
 
-            <Button className="btn-round pull-right"
+            {/* <Button className="btn-round pull-right"
                     color="info"
                     type="button"
                     onClick={e=>{
                         e.preventDefault()
                         getResult()
                     }}
-                    style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >Refresh result</Button>
+                    style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >
+                        Refresh result
+            </Button> */}
 
             <Button className="btn-round pull-right"
-        color="info"
-        style={{ marginRight: '20px' }}
-        onClick={(e) => {
-            e.preventDefault();
-            navigate('/presentation');
-        }}>
-    Home Page
-</Button>
+                color="info"
+                style={{ marginRight: '20px' }}
+                onClick={(e) => {
+                    e.preventDefault();
+                    navigate('/presentation');
+                }}>
+                Home Page
+            </Button>
+
+            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white' }} >
+                Please wait for Instructor
+            </div>
 
         </form>
     );

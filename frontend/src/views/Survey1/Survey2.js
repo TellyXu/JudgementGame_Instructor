@@ -26,7 +26,7 @@ import poll_32 from './poll/game32'
 
 import ScrollTransparentNavbar from "../../components/Navbars/ScrollTransparentNavbar"
 import FooterBlack from "../../components/Footers/FooterBlack"
-import { Card, CardBody, CardImg,Container, Row, Col } from "reactstrap"
+import { Card, CardBody, CardImg, Container, Row, Col } from "reactstrap"
 
 import pic1 from "../../assets/img/MahatmaGandhi.jpg"
 import pic2 from "../../assets/img/surveypage/nonprofit1.jpg"
@@ -138,7 +138,7 @@ function Index({ survey }) {
                             <Col className="ml-auto mr-auto" md="4" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <Card style={{ height: '56%' }}>
                                     <CardBody style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                                        <CardImg style={{ height:'100%', objectFit: 'contain' }} src={imgSrc} alt="Card image cap" />
+                                        <CardImg style={{ height: '100%', objectFit: 'contain' }} src={imgSrc} alt="Card image cap" />
                                     </CardBody>
                                 </Card>
                             </Col>

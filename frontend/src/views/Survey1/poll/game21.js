@@ -235,12 +235,12 @@ function CombinedGame() {
     return (
 
         <form onSubmit={handleSubmit} className="gandhi-survey-form">
-            <Col style={{height:'70vh',overflow: 'auto' }}>
+            <Col style={{ height: '70vh', overflow: 'auto' }}>
 
-                <Row className="ml-auto mr-auto" style={{padding: '50px'}}>
+                <Row className="ml-auto mr-auto" style={{ padding: '50px' }}>
 
 
-                    <Col md="5" style={{padding: '00px'}}>
+                    <Col md="5" style={{ padding: '00px' }}>
                         <Label>
                             Person 1 and a friend were in a rush to pick up a child from school. They attempted to steal
                             a bike and a scooter (worth $80 collectively) belonging to a 6-year old. The mother saw the
@@ -263,7 +263,7 @@ function CombinedGame() {
                         }}></div>
                     </Col>
                     <Col md="2"></Col>
-                    <Col md="5" style={{padding: '00px'}}>
+                    <Col md="5" style={{ padding: '00px' }}>
                         <Label>
                             Person 2 stole tools from a hardware store worth $86.35. Previously Person 2 spent 5 years
                             in prison and armed robbery and attempted armed robber and was charged a 3rd time for
@@ -285,13 +285,13 @@ function CombinedGame() {
                             zIndex: 0
                         }}></div>
                     </Col>
-                    <Col md="10" style={{padding: '00px'}}>
-                        <Label htmlFor="ageComparisonDropdown" style={{fontWeight: 'bold', fontSize: '18px'}}>
+                    <Col md="10" style={{ padding: '00px' }}>
+                        <Label htmlFor="ageComparisonDropdown" style={{ fontWeight: 'bold', fontSize: '18px' }}>
                             You are the judge. You have to determine the risk of Person 1 or Person 2 committing a CRIME in
                             the next two years.
                         </Label>
                     </Col>
-                    <Col md="2" style={{padding: '00px'}}>
+                    <Col md="2" style={{ padding: '00px' }}>
                         <div style={{
                             position: 'absolute',
                             top: 0,
@@ -315,9 +315,9 @@ function CombinedGame() {
                         (not a misdemeanor) on a scale of 1-10; 1=lowest risk, 10=highest risk
                     </Label>
 
-                    <Col md="6" style={{padding: '20px'}}>
+                    <Col md="6" style={{ padding: '20px' }}>
                         <FormGroup>
-                            <Label style={{fontWeight: 'bold', fontSize: '18px'}}>
+                            <Label style={{ fontWeight: 'bold', fontSize: '18px' }}>
                                 Person 1
                             </Label>
                             <Input
@@ -331,9 +331,9 @@ function CombinedGame() {
                             ></Input>
                         </FormGroup>
                     </Col>
-                    <Col md="6" style={{padding: '20px'}}>
+                    <Col md="6" style={{ padding: '20px' }}>
                         <FormGroup>
-                            <Label style={{fontWeight: 'bold', fontSize: '18px'}}>
+                            <Label style={{ fontWeight: 'bold', fontSize: '18px' }}>
                                 Person 2
                             </Label>
                             <Input
@@ -350,44 +350,44 @@ function CombinedGame() {
                 </Row>
 
                 <Row>
-                    <Col md="6" style={{padding: '0px'}}>
+                    <Col md="6" style={{ padding: '0px' }}>
                         {
                             resultData1.length > 0 ? <div style={{
-                                    textAlign: 'center',
-                                    padding: '0 40px',
-                                    display: submitDisabled ? 'block' : 'none',
+                                textAlign: 'center',
+                                padding: '0 40px',
+                                display: submitDisabled ? 'block' : 'none',
                                 fontSize: '10px'
                             }}>
                                 {/*<p style={{fontWeight: 'bold'}}>0*/}
                                 {/*    percentage {Math.round((resultData1.filter(item => item.q1_answer === 0).length / resultData1.length * 100))}%</p>*/}
-                                <p style={{fontWeight: 'bold'}}>1
+                                <p style={{ fontWeight: 'bold' }}>1
                                     percentage {Math.round((resultData1.filter(item => item.q1_answer === 1).length / resultData1.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>2
+                                <p style={{ fontWeight: 'bold' }}>2
                                     percentage {Math.round((resultData1.filter(item => item.q1_answer === 2).length / resultData1.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>3
+                                <p style={{ fontWeight: 'bold' }}>3
                                     percentage {Math.round((resultData1.filter(item => item.q1_answer === 3).length / resultData1.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>4
+                                <p style={{ fontWeight: 'bold' }}>4
                                     percentage {Math.round((resultData1.filter(item => item.q1_answer === 4).length / resultData1.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>5
+                                <p style={{ fontWeight: 'bold' }}>5
                                     percentage {Math.round((resultData1.filter(item => item.q1_answer === 5).length / resultData1.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>6
+                                <p style={{ fontWeight: 'bold' }}>6
                                     percentage {Math.round((resultData1.filter(item => item.q1_answer === 6).length / resultData1.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>7
+                                <p style={{ fontWeight: 'bold' }}>7
                                     percentage {Math.round((resultData1.filter(item => item.q1_answer === 7).length / resultData1.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>8
+                                <p style={{ fontWeight: 'bold' }}>8
                                     percentage {Math.round((resultData1.filter(item => item.q1_answer === 8).length / resultData1.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>9
+                                <p style={{ fontWeight: 'bold' }}>9
                                     percentage {Math.round((resultData1.filter(item => item.q1_answer === 9).length / resultData1.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>10
+                                <p style={{ fontWeight: 'bold' }}>10
                                     percentage {Math.round((resultData1.filter(item => item.q1_answer === 10).length / resultData1.length * 100))}%</p>
                             </div>
-                            :
-                            ''
-                    }
-                </Col>
-                <Col md="6" style={{padding: '0px'}}>
-                    {
-                        resultData2.length > 0 ? <div style={{
+                                :
+                                ''
+                        }
+                    </Col>
+                    <Col md="6" style={{ padding: '0px' }}>
+                        {
+                            resultData2.length > 0 ? <div style={{
                                 textAlign: 'center',
                                 padding: '0 40px',
                                 display: submitDisabled ? 'block' : 'none',
@@ -395,55 +395,62 @@ function CombinedGame() {
                             }}>
                                 {/*<p style={{fontWeight: 'bold'}}>0*/}
                                 {/*    percentage {Math.round((resultData2.filter(item => item.q1_answer === 0).length / resultData2.length * 100))}%</p>*/}
-                                <p style={{fontWeight: 'bold'}}>1
+                                <p style={{ fontWeight: 'bold' }}>1
                                     percentage {Math.round((resultData2.filter(item => item.q1_answer === 1).length / resultData2.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>2
+                                <p style={{ fontWeight: 'bold' }}>2
                                     percentage {Math.round((resultData2.filter(item => item.q1_answer === 2).length / resultData2.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>3
+                                <p style={{ fontWeight: 'bold' }}>3
                                     percentage {Math.round((resultData2.filter(item => item.q1_answer === 3).length / resultData2.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>4
+                                <p style={{ fontWeight: 'bold' }}>4
                                     percentage {Math.round((resultData2.filter(item => item.q1_answer === 4).length / resultData2.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>5
+                                <p style={{ fontWeight: 'bold' }}>5
                                     percentage {Math.round((resultData2.filter(item => item.q1_answer === 5).length / resultData2.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>6
+                                <p style={{ fontWeight: 'bold' }}>6
                                     percentage {Math.round((resultData2.filter(item => item.q1_answer === 6).length / resultData2.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>7
+                                <p style={{ fontWeight: 'bold' }}>7
                                     percentage {Math.round((resultData2.filter(item => item.q1_answer === 7).length / resultData2.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>8
+                                <p style={{ fontWeight: 'bold' }}>8
                                     percentage {Math.round((resultData2.filter(item => item.q1_answer === 8).length / resultData2.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>9
+                                <p style={{ fontWeight: 'bold' }}>9
                                     percentage {Math.round((resultData2.filter(item => item.q1_answer === 9).length / resultData2.length * 100))}%</p>
-                                <p style={{fontWeight: 'bold'}}>10
+                                <p style={{ fontWeight: 'bold' }}>10
                                     percentage {Math.round((resultData2.filter(item => item.q1_answer === 10).length / resultData2.length * 100))}%</p>
                             </div>
-                            :
-                            ''
-                    }
-                </Col>
-            </Row>
+                                :
+                                ''
+                        }
+                    </Col>
+                </Row>
 
-            <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
+                <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
                     color="info"
                     type="submit"
                     style={{ marginRight: '20px', display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
 
-            <Button className="btn-round pull-right" disabled={submitDisabled ? false : true}
+                {/* <Button className="btn-round pull-right" disabled={submitDisabled ? false : true}
                     color="info"
                     type="submit"
                     onClick={_ => {
                         _.preventDefault()
                         getResult()
                     }}
-                    style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >Refresh result</Button>
-            <Button className="btn-round pull-right"
+                    style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >
+                    Refresh result
+                </Button> */}
+                <Button className="btn-round pull-right"
                     color="info"
                     style={{ marginRight: '20px' }}
                     onClick={(e) => {
                         e.preventDefault();
                         navigate('/presentation');
                     }}>
-                Home Page
-            </Button>
+                    Home Page
+                </Button>
+
+                <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white' }} >
+                    Please wait for Instructor
+                </div>
+
             </Col>
         </form>
     );

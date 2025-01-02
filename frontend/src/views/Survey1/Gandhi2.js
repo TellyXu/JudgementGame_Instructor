@@ -154,24 +154,30 @@ function GandhiSurvey() {
                 type="submit"
                 style={{ marginRight: '20px', display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
 
-            <Button className="btn-round pull-right"
+            {/* <Button className="btn-round pull-right"
                     color="info"
                     type="button"
                     onClick={e=>{
                         e.preventDefault()
                         getResult()
                     }}
-                    style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >Refresh result</Button>
+                    style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >
+                        Refresh result
+            </Button> */}
 
             <Button className="btn-round pull-right"
-        color="info"
-        style={{ marginRight: '20px' }}
-        onClick={(e) => {
-            e.preventDefault();
-            navigate('/presentation');
-        }}>
-    Home Page
-</Button>
+                color="info"
+                style={{ marginRight: '20px' }}
+                onClick={(e) => {
+                    e.preventDefault();
+                    navigate('/presentation');
+                }}>
+                Home Page
+            </Button>
+
+            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white' }} >
+                Please wait for Instructor
+            </div>
 
         </form>
     );

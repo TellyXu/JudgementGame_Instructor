@@ -125,32 +125,38 @@ function Game11() {
                 style={{ marginRight: '20px', display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? false : true}
-                    onClick={event => {
-                        event.preventDefault();
-                        setSubmitDisabled(false);
+                onClick={event => {
+                    event.preventDefault();
+                    setSubmitDisabled(false);
 
-                        if (select1 === '1') { // If "YES" is selected
-                            navigate('/poll_12');
-                        } else if (select1 === '0') { // If "NO" is selected
-                            navigate('/presentation');
-                        }
+                    if (select1 === '1') { // If "YES" is selected
+                        navigate('/poll_12');
+                    } else if (select1 === '0') { // If "NO" is selected
+                        navigate('/presentation');
+                    }
 
-                        setSelect1('');
-                    }}
-                    color="success"
-                    type="submit"
-                    style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >
+                    setSelect1('');
+                }}
+                color="success"
+                type="submit"
+                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >
                 {select1 === '0' ? 'Home Page' : <>Next question <span style={{ fontWeight: 'bold' }}>1/3</span></>}
             </Button>
 
-            <Button className="btn-round pull-right" disabled={submitDisabled ? false : true}
+            {/* <Button className="btn-round pull-right" disabled={submitDisabled ? false : true}
                 color="info"
                 type="submit"
                 onClick={_ => {
                     _.preventDefault()
                     getResult()
                 }}
-                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >Refresh result</Button>
+                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >
+                Refresh result
+            </Button> */}
+
+            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white' }} >
+                Please wait for Instructor
+            </div>
         </form>
     );
 }
