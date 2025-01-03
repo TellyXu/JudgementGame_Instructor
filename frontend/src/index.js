@@ -86,36 +86,6 @@ root.render(
 
       <Route path="/judgement61" element={<Survey survey={'6-1'} key={'6-1'} />} />
 
-      {/* !~ */}
-      <Route path="/poll_11" element={<Survey survey={'poll-1-1'} key={'poll-1-1'} />} />
-      <Route path="/poll_12" element={<Survey survey={'poll-1-2'} key={'poll-1-2'} />} />
-      <Route path="/poll_13" element={<Survey survey={'poll-1-3'} key={'poll-1-3'} />} />
-      <Route path="/poll_21" element={<Survey survey={'poll-2-1'} key={'poll-2-1'} />} />
-      {/*<Route path="/poll_22" element={<Survey survey={'poll-2-2'} key={'poll-2-2'} />} />*/}
-      <Route path="/poll_31" element={<Survey survey={'poll-3-1'} key={'poll-3-1'} />} />
-      <Route path="/poll_32" element={<Survey survey={'poll-3-2'} key={'poll-3-2'} />} />
-      {/* ~! */}
-
-      <Route path="/dashboard1" element={<Dashboard show={1} />} />
-      <Route path="/dashboard2" element={<Dashboard show={2} />} />
-      <Route path="/dashboard3" element={<Dashboard show={3} />} />
-      <Route path="/dashboard4" element={<Dashboard show={4} />} />
-      <Route path="/dashboard5" element={<Dashboard show={5} />} />
-      <Route path="/dashboard6" element={<Dashboard show={6} />} />
-
-      {/*  */}
-
-      <Route path="/dashboardPoll1" element={<Dashboard show={7} />} />
-      <Route path="/dashboardPoll2" element={<Dashboard show={8} />} />
-      <Route path="/dashboardPoll3" element={<Dashboard show={9} />} />
-
-
-      {/*  */}
-      <Route path="/text12" element={<Text show={12} />} />
-      <Route path="/text34" element={<Text show={34} />} />
-      <Route path="/text5" element={<Text show={5} />} />
-      <Route path="/text6" element={<Text show={6} />} />
-
       <Route path="*" element={<Navigate to="/presentation" replace />} />
     </Routes>
     </ModalProvider>
