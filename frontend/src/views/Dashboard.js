@@ -444,7 +444,7 @@ function Dashboard({ show }) {
                                         </div>
 
                                         <hr></hr>
-                                        <p className="text-14" style={{fontFamily: 'gentona', fontWeight: 400, fontSize: '22px',}}>Group 2 average :
+                                        <p className="text-14" style={{fontFamily: 'gentona', fontWeight: 600, fontSize: '22px',}}>Group 2 average :
 
                                             {survey2Data.filter(item => item.version === 2).length > 0 ? "$" +
                                                 (survey2Data.filter(item => item.version === 2).reduce((acc, cur) => acc + (cur.q1_answer || 0), 0) / survey2Data.filter(item => item.version === 2).length).toFixed(2)
@@ -499,7 +499,7 @@ function Dashboard({ show }) {
 
                                 <div style={{ display: "flex", flexWrap: 'wrap', justifyContent: 'center' }}>
                                     <div className="bbg-white-400" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '18px',background: '#eb4a41', color: 'white', }}>
-                                        <div class={'container-tips text-14'} style={{ height: '150px', background: '#eb4a41', color: 'white', }}>
+                                        <div class={'container-tips text-14'} style={{ paddingBottom:"20px",height: '100px', background: '#eb4a41', color: 'white', }}>
                                             <p className="m-0 tips text-white">You are shopping for a luxurious gray pinstripe suit for $425. You are about to buy it, and then another customer whispers that the exact same suit is on sale for $418 at another store 15 minutes away.</p>
                                         </div>
                                         {/* <PiA filter={[0, 1]} pData={survey4Data.filter(item => item.version === 1)}
@@ -509,7 +509,7 @@ function Dashboard({ show }) {
                                         <p>NO: {Math.round((survey4Data.filter(item => item.q1_answer === 1 && item.version === 1).length / (survey4Data.filter(item => item.version === 1).length)) * 100)}%</p>
                                     </div>
                                     <div className="bbg-white-400 ml-20" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '18px',background: '#eb4a41', color: 'white', }}>
-                                        <div class={'container-tips text-14'} style={{ height: '150px', background: '#eb4a41', color: 'white', }}>
+                                        <div class={'container-tips text-14'} style={{ paddingBottom:"10px", Height: '100px', background: '#eb4a41', color: 'white', }}>
                                             <p className="m-0 tips text-white">You go to a store and find a nice pen for $25. Then you remember that the same pen is on sale for $18 at another store 15 minutes away.</p>
                                         </div>
                                         {/* <PiA filter={[0, 1]} pData={survey4Data.filter(item => item.version === 2)}
