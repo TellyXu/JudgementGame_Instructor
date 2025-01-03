@@ -103,16 +103,17 @@ function GandhiSurvey() {
 
     return (
         <form onSubmit={handleSubmit} className="gandhi-survey-form">
-            <h1>  </h1>
+            <h1></h1>
             <Row>
                 <Col className="ml-auto mr-auto" md="5.5">
                     <FormGroup>
                         <Label htmlFor="ageComparisonDropdown">
-                            Did Gandhi die before or after the age of <span style={{ fontWeight: 'bold', fontSize: '1.5em' }}>32</span>?
+                            Did Gandhi die before or after the age of <span
+                            style={{fontWeight: 'bold', fontSize: '1.5em'}}>32</span>?
                         </Label>
                         <UncontrolledDropdown>
                             <DropdownToggle caret color="primary">
-                                {ageComparison ? ageComparison : 'Select before/after'}
+                                {ageComparison ? ageComparison : 'Select Before/after'}
                             </DropdownToggle>
                             <DropdownMenu>
                                 <DropdownItem onClick={() => handleDropdownSelect('before')}>Before</DropdownItem>
@@ -137,22 +138,25 @@ function GandhiSurvey() {
                 </Col>
             </Row>
 
-            <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
-                <h3>Result</h3>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p style={{ width: '', textAlign: 'left' }}>Before:&nbsp;&nbsp;</p> <p style={{ marginRight: '60px' }}> {(resultData.filter(item => item.q1_answer === 0).length)} ({Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%)</p>
-                    <p style={{ width: '', textAlign: 'left' }}>After:&nbsp;&nbsp;</p> <p> {(resultData.filter(item => item.q1_answer === 1).length)} ({Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%)</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>Average age:&nbsp;&nbsp;</p>
-                    <p>{Math.round(getAvg(resultData.map(item => item.q2_answer)))}</p>
-                </div>
+            {/*<div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>*/}
+            {/*    <h3>Result</h3>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p style={{ width: '', textAlign: 'left' }}>Before:&nbsp;&nbsp;</p> <p style={{ marginRight: '60px' }}> {(resultData.filter(item => item.q1_answer === 0).length)} ({Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%)</p>*/}
+            {/*        <p style={{ width: '', textAlign: 'left' }}>After:&nbsp;&nbsp;</p> <p> {(resultData.filter(item => item.q1_answer === 1).length)} ({Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%)</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>Average age:&nbsp;&nbsp;</p>*/}
+            {/*        <p>{Math.round(getAvg(resultData.map(item => item.q2_answer)))}</p>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            <div style={{textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none'}}>
+                <h3>Your response: {ageComparison}, {gandhiAge} years</h3>
             </div>
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
-                color="info"
-                type="submit"
-                style={{ marginRight: '20px', display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
+                    color="info"
+                    type="submit"
+                    style={{marginRight: '20px', display: submitDisabled ? 'none' : 'block'}}>Submit</Button>
 
             {/* <Button className="btn-round pull-right"
                     color="info"
@@ -166,16 +170,27 @@ function GandhiSurvey() {
             </Button> */}
 
             <Button className="btn-round pull-right"
-                color="info"
-                style={{ marginRight: '20px' }}
-                onClick={(e) => {
-                    e.preventDefault();
-                    navigate('/presentation');
-                }}>
+                    color="info"
+                    style={{marginRight: '20px'}}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        navigate('/presentation');
+                    }}>
                 Home Page
             </Button>
 
-            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white' }} >
+            <div style={{
+                background: '#1e3246',
+                position: 'absolute',
+                bottom: '6px',
+                left: '6px',
+                padding: '10px',
+                borderRadius: '4px',
+                color: 'white',
+                display: submitDisabled ? 'block' : 'none'
+            }}
+
+            >
                 Please wait for Instructor
             </div>
 

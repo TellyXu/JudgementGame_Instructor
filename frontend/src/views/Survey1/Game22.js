@@ -83,20 +83,21 @@ function Game22() {
 
     return (
         <form onSubmit={handleSubmit} className="gandhi-survey-form">
-            <h1>  </h1>
+            <h1></h1>
             <Row>
-                <Col className="ml-auto mr-auto" md="5.5" style={{ padding: '50px' }}>
+                <Col className="ml-auto mr-auto" md="5.5" style={{padding: '50px'}}>
                     <FormGroup>
                         <Label htmlFor="ageComparisonDropdown">
-                            You are generally a charitable person and regularly donate.  Your favorite charity reached out recently and requested a donation of <span
-                                style={{ fontWeight: 'bold', fontSize: '1.5em' }}>$5</span>.
+                            You are generally a charitable person and regularly donate. Your favorite charity reached
+                            out recently and requested a donation of <span
+                            style={{fontWeight: 'bold', fontSize: '1.5em'}}>$5</span>.
                         </Label>
                         <Label htmlFor="ageComparisonDropdown">
                             How much would you donate?
                         </Label>
                         <Input
                             disabled={submitDisabled ? true : false}
-                            style={{ marginTop: '15px' }}
+                            style={{marginTop: '15px'}}
                             aria-describedby="emailHelp"
                             placeholder="Enter an Amount"
                             type="number"
@@ -108,18 +109,22 @@ function Game22() {
                 </Col>
             </Row>
 
-            <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
-                <h3>Result</h3>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>Average donation amount:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round(getAvg(resultData.map(item => item.q1_answer)))}</p>
-                </div>
+            {/*<div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>*/}
+            {/*    <h3>Result</h3>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>Average donation amount:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{Math.round(getAvg(resultData.map(item => item.q1_answer)))}</p>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+            <div style={{textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none'}}>
+                <h3>Your response: {money}</h3>
             </div>
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
-                color="info"
-                type="submit"
-                style={{ marginRight: '20px', display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
+                    color="info"
+                    type="submit"
+                    style={{marginRight: '20px', display: submitDisabled ? 'none' : 'block'}}>Submit</Button>
 
             {/* <Button className="btn-round pull-right"
                     color="info"
@@ -133,16 +138,25 @@ function Game22() {
             </Button> */}
 
             <Button className="btn-round pull-right"
-                color="info"
-                style={{ marginRight: '20px' }}
-                onClick={(e) => {
-                    e.preventDefault();
-                    navigate('/presentation');
-                }}>
+                    color="info"
+                    style={{marginRight: '20px'}}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        navigate('/presentation');
+                    }}>
                 Home Page
             </Button>
 
-            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white' }} >
+            <div style={{
+                background: '#1e3246',
+                position: 'absolute',
+                bottom: '6px',
+                left: '6px',
+                padding: '10px',
+                borderRadius: '4px',
+                color: 'white',
+                display: submitDisabled ? 'block' : 'none'
+            }}>
                 Please wait for Instructor
             </div>
 
