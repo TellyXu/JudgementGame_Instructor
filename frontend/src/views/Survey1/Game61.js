@@ -70,19 +70,21 @@ function Game61() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="gandhi-survey-form" style={{ padding: '30px' }}>
+        <form onSubmit={handleSubmit} className="gandhi-survey-form" style={{padding: '30px'}}>
             <Label>
-                You go to an office end-of-year party where your colleagues have brought their partners.  Your colleague introduces you to her partner, Mark, noting that Mark has a Ph.D., he loves poetry, and loved our cat!
+                You go to an office end-of-year party where your colleagues have brought their partners. Your colleague
+                introduces you to her partner, Mark, noting that Mark has a Ph.D., he loves poetry, and loved our cat!
             </Label>
 
             <Row>
-                <Col className="ml-auto mr-auto" >
+                <Col className="ml-auto mr-auto">
                     <FormGroup>
                         <Label htmlFor="ageComparisonDropdown">
                             <Label>
                                 You have to guess if Mark plays Golf or Soccer
                             </Label>
                         </Label>
+                        {!submitDisabled&&
                         <UncontrolledDropdown>
                             <DropdownToggle caret color="primary">
                                 {select1 ? (select1 === '0' ? 'Golf' : 'Soccer') : 'Select Golf or Soccer'}
@@ -92,34 +94,39 @@ function Game61() {
                                 <DropdownItem onClick={() => setSelect1('1')}>Soccer</DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
+                        }
                     </FormGroup>
                 </Col>
             </Row>
 
-            <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
-                <h3>Result</h3>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>Golf total count:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.q1_answer === 0)).length}</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>Soccer total count: &nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.q1_answer === 1)).length}</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>Golf percentage:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>Soccer percentage: &nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%</p>
-                </div>
+            {/*<div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>*/}
+            {/*    <h3>Result</h3>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>Golf total count:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.q1_answer === 0)).length}</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>Soccer total count: &nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.q1_answer === 1)).length}</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>Golf percentage:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>Soccer percentage: &nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%</p>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+            <div style={{textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none'}}>
+                <h3>Your response: {select1 === '0' ? 'Golf' : 'Soccer'}</h3>
             </div>
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
-                color="info"
-                type="submit"
-                style={{ display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
+                    color="info"
+                    type="submit"
+                    style={{display: submitDisabled ? 'none' : 'block'}}>Submit</Button>
 
             {/* <Button className="btn-round pull-right"
                 color="info"
@@ -133,17 +140,25 @@ function Game61() {
             </Button> */}
 
             <Button className="btn-round pull-right"
-                color="info"
-                style={{ marginRight: '20px' }}
-                onClick={(e) => {
-                    e.preventDefault();
-                    navigate('/presentation');
-                }}>
+                    color="info"
+                    style={{marginRight: '20px'}}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        navigate('/presentation');
+                    }}>
                 Home Page
             </Button>
 
-            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white',
-                display: submitDisabled ? 'block' : 'none' }} >
+            <div style={{
+                background: '#1e3246',
+                position: 'absolute',
+                bottom: '6px',
+                left: '6px',
+                padding: '10px',
+                borderRadius: '4px',
+                color: 'white',
+                display: submitDisabled ? 'block' : 'none'
+            }}>
                 Please wait for Instructor
             </div>
 

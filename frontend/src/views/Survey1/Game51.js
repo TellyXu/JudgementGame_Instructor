@@ -73,21 +73,23 @@ function Game41() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="gandhi-survey-form" style={{ padding: '30px' }}>
+        <form onSubmit={handleSubmit} className="gandhi-survey-form" style={{padding: '30px'}}>
             <Row>
-                <Col className="ml-auto mr-auto" >
+                <Col className="ml-auto mr-auto">
                     <FormGroup>
                         <Label htmlFor="ageComparisonDropdown">
 
-                            <Label style={{ marginBottom: '10px' }}>
+                            <Label style={{marginBottom: '10px'}}>
                                 You are shopping for a luxurious gray pinstripe suit for $425.
-                                You are about to buy it, and then another customer whispers that the exact same suit is on sale for $418 at another store 15 minutes away.
+                                You are about to buy it, and then another customer whispers that the exact same suit is
+                                on sale for $418 at another store 15 minutes away.
                             </Label>
 
-                            <Label style={{ marginBottom: '0', fontWeight: 'weight' }}>
+                            <Label style={{marginBottom: '0', fontWeight: 'weight'}}>
                                 Will you shift to another store?
                             </Label>
                         </Label>
+                        {!submitDisabled&&
                         <UncontrolledDropdown>
                             <DropdownToggle caret color="primary">
                                 {select1 ? (select1 === '1' ? 'YES' : 'NO') : 'Select YES or NO'}
@@ -97,34 +99,42 @@ function Game41() {
                                 <DropdownItem onClick={() => setSelect1('0')}>NO</DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
+                        }
                     </FormGroup>
                 </Col>
             </Row>
 
-            <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
-                <h3>Result</h3>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>YES total count:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.q1_answer === 1)).length}</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>NO total count: &nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.q1_answer === 0)).length}</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>YES percentage:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>NO percentage: &nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%</p>
-                </div>
+            {/*<div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>*/}
+            {/*    <h3>Result</h3>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>YES total count:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.q1_answer === 1)).length}</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>NO total count: &nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.q1_answer === 0)).length}</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>YES percentage:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>NO percentage: &nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%</p>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+            <div style={{textAlign: 'center', padding: '0 40px'}}>
+                {submitDisabled && (
+                    <h3>Your
+                        response: {(select1 === '1' ? 'YES' : 'NO')}</h3>
+                )}
             </div>
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
-                color="info"
-                type="submit"
-                style={{  display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
+                    color="info"
+                    type="submit"
+                    style={{display: submitDisabled ? 'none' : 'block'}}>Submit</Button>
 
             {/* <Button className="btn-round pull-right"
                     color="info"
@@ -138,17 +148,25 @@ function Game41() {
             </Button> */}
 
             <Button className="btn-round pull-right"
-                color="info"
-                style={{ marginRight: '20px' }}
-                onClick={(e) => {
-                    e.preventDefault();
-                    navigate('/presentation');
-                }}>
+                    color="info"
+                    style={{marginRight: '20px'}}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        navigate('/presentation');
+                    }}>
                 Home Page
             </Button>
 
-            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white',
-                display: submitDisabled ? 'block' : 'none' }} >
+            <div style={{
+                background: '#1e3246',
+                position: 'absolute',
+                bottom: '6px',
+                left: '6px',
+                padding: '10px',
+                borderRadius: '4px',
+                color: 'white',
+                display: submitDisabled ? 'block' : 'none'
+            }}>
                 Please wait for Instructor
             </div>
 

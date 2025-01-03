@@ -78,69 +78,73 @@ function Game11() {
 
     return (
         <form onSubmit={handleSubmit} className="gandhi-survey-form">
-            <h1>  </h1>
+            <h1></h1>
             <Row>
-                <Col className="ml-auto mr-auto" md="5.5" style={{ padding: '50px' }}>
+                <Col className="ml-auto mr-auto" md="5.5" style={{padding: '50px'}}>
                     <FormGroup>
-                        <Label htmlFor="ageComparisonDropdown" style={{ fontWeight: 'bold', fontSize: '18px' }}>
+                        <Label htmlFor="ageComparisonDropdown" style={{fontWeight: 'bold', fontSize: '18px'}}>
                             Have you personally used an AI productivity tool?
                         </Label>
-
+                        {!submitDisabled &&
                         <UncontrolledDropdown>
                             <DropdownToggle caret color="primary">
-                                {select1 ? (select1 !== '0' ? 'YES' : 'NO') : 'Select Yes or No'}
+                                {select1 ? (select1 !== '0' ? 'YES' : 'NO') : 'Select YES or NO'}
                             </DropdownToggle>
                             <DropdownMenu>
                                 <DropdownItem onClick={() => setSelect1('1')}>YES</DropdownItem>
                                 <DropdownItem onClick={() => setSelect1('0')}>NO</DropdownItem>
                             </DropdownMenu>
-                        </UncontrolledDropdown>
+                        </UncontrolledDropdown>}
                     </FormGroup>
                 </Col>
             </Row>
 
-            <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
-                <h3>Result</h3>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>YES total count:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{resultData.filter(item => item.q1_answer === 1).length}</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>NO total count:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{resultData.filter(item => item.q1_answer === 0).length}</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>YES percentage:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>NO percentage:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%</p>
-                </div>
+            {/*<div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>*/}
+            {/*    <h3>Result</h3>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>YES total count:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{resultData.filter(item => item.q1_answer === 1).length}</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>NO total count:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{resultData.filter(item => item.q1_answer === 0).length}</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>YES percentage:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>NO percentage:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%</p>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+            <div style={{textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none'}}>
+                <h3>Your response: {(select1 !== '0' ? 'YES' : 'NO')}</h3>
             </div>
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
-                color="info"
-                type="submit"
-                style={{ marginRight: '20px', display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
+                    color="info"
+                    type="submit"
+                    style={{marginRight: '20px', display: submitDisabled ? 'none' : 'block'}}>Submit</Button>
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? false : true}
-                onClick={event => {
-                    event.preventDefault();
-                    setSubmitDisabled(false);
+                    onClick={event => {
+                        event.preventDefault();
+                        setSubmitDisabled(false);
 
-                    if (select1 === '1') { // If "YES" is selected
-                        navigate('/poll_12');
-                    } else if (select1 === '0') { // If "NO" is selected
-                        navigate('/presentation');
-                    }
+                        if (select1 === '1') { // If "YES" is selected
+                            navigate('/poll_12');
+                        } else if (select1 === '0') { // If "NO" is selected
+                            navigate('/presentation');
+                        }
 
-                    setSelect1('');
-                }}
-                color="success"
-                type="submit"
-                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >
-                {select1 === '0' ? 'Home Page' : <>Next question <span style={{ fontWeight: 'bold' }}>1/3</span></>}
+                        setSelect1('');
+                    }}
+                    color="success"
+                    type="submit"
+                    style={{marginRight: '20px', display: submitDisabled ? 'block' : 'none'}}>
+                {select1 === '0' ? 'Home Page' : <>Next question <span style={{fontWeight: 'bold'}}>1/3</span></>}
             </Button>
 
             {/* <Button className="btn-round pull-right" disabled={submitDisabled ? false : true}
@@ -154,7 +158,16 @@ function Game11() {
                 Refresh result
             </Button> */}
 
-            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white' }} >
+            <div style={{
+                background: '#1e3246',
+                position: 'absolute',
+                bottom: '6px',
+                left: '6px',
+                padding: '10px',
+                borderRadius: '4px',
+                color: 'white',
+                display: submitDisabled ? 'block' : 'none'
+            }}>
                 Please wait for Instructor
             </div>
         </form>

@@ -85,18 +85,20 @@ function Game61() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="gandhi-survey-form" style={{ padding: '30px' }}>
+        <form onSubmit={handleSubmit} className="gandhi-survey-form" style={{padding: '30px'}}>
             <Label>
-                MedCo Inc. just developed a breakthrough therapy for a rare disease and did a study on its effectiveness. 100 patients took the medicine and 70 patients got better.
+                MedCo Inc. just developed a breakthrough therapy for a rare disease and did a study on its
+                effectiveness. 100 patients took the medicine and 70 patients got better.
             </Label>
             <Label>
             </Label>
             <Row>
-                <Col className="ml-auto mr-auto" >
+                <Col className="ml-auto mr-auto">
                     <FormGroup>
                         <Label htmlFor="ageComparisonDropdown">
-                            <Label style={{ marginBottom: '0', fontWeight: 'weight' }}>
-                                On a "6-point scale" with 6 being very good, and 1 being very bad, how would you evaluate the drug’s effect?
+                            <Label style={{marginBottom: '0', fontWeight: 'weight'}}>
+                                On a "6-point scale" with 6 being very good, and 1 being very bad, how would you
+                                evaluate the drug’s effect?
                             </Label>
                         </Label>
                         <UncontrolledDropdown>
@@ -115,18 +117,23 @@ function Game61() {
                 </Col>
             </Row>
 
-            <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
-                <h3>Result</h3>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>Average score:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round(getAvg(resultData.map(item => item.q1_answer)))}</p>
-                </div>
+            {/*<div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>*/}
+            {/*    <h3>Result</h3>*/}
+            {/*    <div style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*        <p>Average score:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>{Math.round(getAvg(resultData.map(item => item.q1_answer)))}</p>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+            <div style={{textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none'}}>
+                <h3>Your response: {select1}</h3>
             </div>
 
+
             <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
-                color="info"
-                type="submit"
-                style={{ display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
+                    color="info"
+                    type="submit"
+                    style={{display: submitDisabled ? 'none' : 'block'}}>Submit</Button>
 
             {/* <Button className="btn-round pull-right"
                     color="info"
@@ -140,17 +147,25 @@ function Game61() {
             </Button> */}
 
             <Button className="btn-round pull-right"
-                color="info"
-                style={{ marginRight: '20px' }}
-                onClick={(e) => {
-                    e.preventDefault();
-                    navigate('/presentation');
-                }}>
+                    color="info"
+                    style={{marginRight: '20px'}}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        navigate('/presentation');
+                    }}>
                 Home Page
             </Button>
 
-            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white',
-                display: submitDisabled ? 'block' : 'none' }} >
+            <div style={{
+                background: '#1e3246',
+                position: 'absolute',
+                bottom: '6px',
+                left: '6px',
+                padding: '10px',
+                borderRadius: '4px',
+                color: 'white',
+                display: submitDisabled ? 'block' : 'none'
+            }}>
                 Please wait for Instructor
             </div>
 

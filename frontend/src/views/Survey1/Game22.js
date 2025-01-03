@@ -95,6 +95,7 @@ function Game22() {
                         <Label htmlFor="ageComparisonDropdown">
                             How much would you donate?
                         </Label>
+                        {!submitDisabled&&
                         <Input
                             disabled={submitDisabled ? true : false}
                             style={{marginTop: '15px'}}
@@ -105,6 +106,7 @@ function Game22() {
                             value={money}
                             onChange={_ => setMoney(_.target.value)}
                         ></Input>
+                        }
                     </FormGroup>
                 </Col>
             </Row>

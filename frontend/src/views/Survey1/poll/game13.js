@@ -79,57 +79,62 @@ function Game13() {
 
     return (
         <form onSubmit={handleSubmit} className="gandhi-survey-form">
-            <h1>  </h1>
+            <h1></h1>
             <Row>
-                <Col className="ml-auto mr-auto" md="5.5" style={{ padding: '50px', width: '100%' }}>
-                    <FormGroup style={{ width: '80%', margin: '0 auto' }}>
-                        <Label htmlFor="ageComparisonDropdown" style={{ fontWeight: 'bold', fontSize: '18px' }}>
+                <Col className="ml-auto mr-auto" md="5.5" style={{padding: '50px', width: '100%'}}>
+                    <FormGroup style={{width: '80%', margin: '0 auto'}}>
+                        <Label htmlFor="ageComparisonDropdown" style={{fontWeight: 'bold', fontSize: '18px'}}>
                             To what extent did you find the tool useful?
                         </Label>
-                        <Label htmlFor="ageComparisonDropdown">
-                            5-point scale, 1=not at all useful, 5=very useful
-                        </Label>
-                        <UncontrolledDropdown>
-                            <DropdownToggle caret color="primary">
-                                {money ? money : 'Select point'}
-                            </DropdownToggle>
-                            <DropdownMenu>
-                                {/*<DropdownItem onClick={() => setMoney('0')}>0</DropdownItem>*/}
-                                <DropdownItem onClick={() => setMoney('1')}>1</DropdownItem>
-                                <DropdownItem onClick={() => setMoney('2')}>2</DropdownItem>
-                                <DropdownItem onClick={() => setMoney('3')}>3</DropdownItem>
-                                <DropdownItem onClick={() => setMoney('4')}>4</DropdownItem>
-                                <DropdownItem onClick={() => setMoney('5')}>5</DropdownItem>
-                            </DropdownMenu>
-                        </UncontrolledDropdown>
+                        {!submitDisabled &&
+                            <Label htmlFor="ageComparisonDropdown">
+                                5-point scale, 1=not at all useful, 5=very useful
+                            </Label>}
+                        {!submitDisabled &&
+                            <UncontrolledDropdown>
+                                <DropdownToggle caret color="primary">
+                                    {money ? money : 'Select point'}
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                    {/*<DropdownItem onClick={() => setMoney('0')}>0</DropdownItem>*/}
+                                    <DropdownItem onClick={() => setMoney('1')}>1</DropdownItem>
+                                    <DropdownItem onClick={() => setMoney('2')}>2</DropdownItem>
+                                    <DropdownItem onClick={() => setMoney('3')}>3</DropdownItem>
+                                    <DropdownItem onClick={() => setMoney('4')}>4</DropdownItem>
+                                    <DropdownItem onClick={() => setMoney('5')}>5</DropdownItem>
+                                </DropdownMenu>
+                            </UncontrolledDropdown>}
                     </FormGroup>
                 </Col>
             </Row>
 
-            {
-                resultData.length > 0 ? <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
-                    {/*<p style={{ fontWeight: 'bold' }}>0 percentage {Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%</p>*/}
-                    <p style={{ fontWeight: 'bold' }}>1 percentage {Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%</p>
-                    <p style={{ fontWeight: 'bold' }}>2 percentage {Math.round((resultData.filter(item => item.q1_answer === 2).length / resultData.length * 100))}%</p>
-                    <p style={{ fontWeight: 'bold' }}>3 percentage {Math.round((resultData.filter(item => item.q1_answer === 3).length / resultData.length * 100))}%</p>
-                    <p style={{ fontWeight: 'bold' }}>4 percentage {Math.round((resultData.filter(item => item.q1_answer === 4).length / resultData.length * 100))}%</p>
-                    <p style={{ fontWeight: 'bold' }}>5 percentage {Math.round((resultData.filter(item => item.q1_answer === 5).length / resultData.length * 100))}%</p>
-                </div>
-                    :
-                    ''
-            }
+            {/*{*/}
+            {/*    resultData.length > 0 ? <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>*/}
+            {/*        /!*<p style={{ fontWeight: 'bold' }}>0 percentage {Math.round((resultData.filter(item => item.q1_answer === 0).length / resultData.length * 100))}%</p>*!/*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>1 percentage {Math.round((resultData.filter(item => item.q1_answer === 1).length / resultData.length * 100))}%</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>2 percentage {Math.round((resultData.filter(item => item.q1_answer === 2).length / resultData.length * 100))}%</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>3 percentage {Math.round((resultData.filter(item => item.q1_answer === 3).length / resultData.length * 100))}%</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>4 percentage {Math.round((resultData.filter(item => item.q1_answer === 4).length / resultData.length * 100))}%</p>*/}
+            {/*        <p style={{ fontWeight: 'bold' }}>5 percentage {Math.round((resultData.filter(item => item.q1_answer === 5).length / resultData.length * 100))}%</p>*/}
+            {/*    </div>*/}
+            {/*        :*/}
+            {/*        ''*/}
+            {/*}*/}
+            <div style={{textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none'}}>
+                <h3>Your response: {money}</h3>
+            </div>
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
-                color="info"
-                type="submit"
-                style={{ marginRight: '20px', display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
-
+                    color="info"
+                    type="submit"
+                    style={{marginRight: '20px', display: submitDisabled ? 'none' : 'block'}}>Submit</Button>
 
 
             <Button className="btn-round pull-right" disabled={true}
-                color="success"
-                type="submit"
-                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} ><span style={{ fontWeight: 'bold' }}>3/3</span></Button>
+                    color="success"
+                    type="submit"
+                    style={{marginRight: '20px', display: submitDisabled ? 'block' : 'none'}}><span
+                style={{fontWeight: 'bold'}}>3/3</span></Button>
 
             {/* <Button className="btn-round pull-right" disabled={submitDisabled ? false : true}
                 color="info"
@@ -143,16 +148,25 @@ function Game13() {
             </Button> */}
 
             <Button className="btn-round pull-right"
-                color="info"
-                style={{ marginRight: '20px' }}
-                onClick={(e) => {
-                    e.preventDefault();
-                    navigate('/presentation');
-                }}>
+                    color="info"
+                    style={{marginRight: '20px'}}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        navigate('/presentation');
+                    }}>
                 Home Page
             </Button>
 
-            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white' }} >
+            <div style={{
+                background: '#1e3246',
+                position: 'absolute',
+                bottom: '6px',
+                left: '6px',
+                padding: '10px',
+                borderRadius: '4px',
+                color: 'white',
+                display: submitDisabled ? 'block' : 'none'
+            }}>
                 Please wait for Instructor
             </div>
 

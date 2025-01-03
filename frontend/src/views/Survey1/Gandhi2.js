@@ -111,6 +111,7 @@ function GandhiSurvey() {
                             Did Gandhi die before or after the age of <span
                             style={{fontWeight: 'bold', fontSize: '1.5em'}}>32</span>?
                         </Label>
+                        {!submitDisabled&&
                         <UncontrolledDropdown>
                             <DropdownToggle caret color="primary">
                                 {ageComparison ? ageComparison : 'Select Before/after'}
@@ -119,12 +120,13 @@ function GandhiSurvey() {
                                 <DropdownItem onClick={() => handleDropdownSelect('before')}>Before</DropdownItem>
                                 <DropdownItem onClick={() => handleDropdownSelect('after')}>After</DropdownItem>
                             </DropdownMenu>
-                        </UncontrolledDropdown>
+                        </UncontrolledDropdown>}
                     </FormGroup>
                 </Col>
                 <Col className="ml-auto mr-auto" md="4">
                     <FormGroup>
                         <Label htmlFor="gandhiAgeInput">What age did Gandhi die at?</Label>
+                        {!submitDisabled&&
                         <Input
                             disabled={submitDisabled ? true : false}
                             type="number"
@@ -133,7 +135,7 @@ function GandhiSurvey() {
                             value={gandhiAge}
                             onChange={(e) => setGandhiAge(e.target.value)}
                             required
-                        />
+                        />}
                     </FormGroup>
                 </Col>
             </Row>

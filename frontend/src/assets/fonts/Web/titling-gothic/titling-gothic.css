@@ -1,0 +1,41 @@
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/// TITLING GOTHIC /////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////*/
+
+
+/*==================*/
+/*=== Bold (700) ===*/
+/*==================*/
+@font-face {
+  font-family: 'titling-gothic';
+  src: url('webfonts/Titling-Gothic-Bold.eot');
+  src: url('webfonts/Titling-Gothic-Bold.eot?#iefix') format('embedded-opentype'),
+       url('webfonts/Titling-Gothic-Bold.woff') format('woff'),
+       url('webfonts/Titling-Gothic-Bold.ttf') format('truetype'),
+       url('webfonts/Titling-Gothic-Bold.svg#titlinggothicbold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+
+/*====================*/
+/*=== Medium (500) ===*/
+/*====================*/
+
+
+
+/*=====================*/
+/*=== Regular (300) ===*/
+/*=====================*/
+@font-face {
+  font-family: 'titling-gothic';
+  src: url('webfonts/Titling-Gothic-Regular.eot');
+  src: url('webfonts/Titling-Gothic-Regular.eot?#iefix') format('embedded-opentype'),
+       url('webfonts/Titling-Gothic-Regular.woff') format('woff'),
+       url('webfonts/Titling-Gothic-Regular.ttf') format('truetype'),
+       url('webfonts/Titling-Gothic-Regular.svg#titlinggothicregular') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}

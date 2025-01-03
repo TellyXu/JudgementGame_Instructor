@@ -90,6 +90,7 @@ function Game21() {
                         <Label htmlFor="ageComparisonDropdown">
                             How much would you donate?
                         </Label>
+                        {!submitDisabled&&
                         <Input
                             disabled={submitDisabled ? true : false}
                             style={{marginTop: '15px'}}
@@ -99,7 +100,7 @@ function Game21() {
                             required
                             value={money}
                             onChange={_ => setMoney(_.target.value)}
-                        ></Input>
+                        ></Input>}
                     </FormGroup>
                 </Col>
             </Row>

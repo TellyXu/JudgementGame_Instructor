@@ -9,8 +9,8 @@ import FooterBlack from "../components/Footers/FooterBlack";
 import { Card, Container, Row, Col, Alert } from "reactstrap";
 import { useNavigate } from 'react-router-dom';
 import * as echarts from 'echarts';
-
-import "./base.scss"
+import "./Dashboard.css";
+import "./base.scss";
 import CombinedBoxEchart from "../components/combinedbox";
 import DualBoxEchart from "../components/combinedbox";
 
@@ -256,8 +256,8 @@ function Dashboard({ show }) {
                     }}>
                     <Container>
                         <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '80px' }}>
-                            <Button color="danger" onClick={() => { navigate('/presentation'); }}>Home Page</Button>
-                            <Button color="danger" onClick={_ => getaData()} style={{ marginLeft: '20px' }}>Refresh Dashboard</Button>
+                            <Button color="info" onClick={() => { navigate('/presentation'); }}>Home Page</Button>
+                            <Button color="info" onClick={_ => getaData()} style={{ marginLeft: '20px' }}>Refresh Dashboard</Button>
                             {(show <= 6) && <Button
                                 color="danger"
                                 onClick={() => {
@@ -288,7 +288,7 @@ function Dashboard({ show }) {
 
                         {
                             show === 1 && <div>
-                                <h2 style={{ color: 'white', textAlign: 'center' }}>Judgement 1</h2>
+                                <h2 style={{fontFamily: 'quadon', fontWeight: 600, fontSize: '42px',  color: 'white', textAlign: 'center' }}>Judgement 1</h2>
                                 <div style={{
                                     display: "flex",
                                     flexWrap: 'wrap',
@@ -296,34 +296,37 @@ function Dashboard({ show }) {
                                     marginBottom: '20px'
                                 }}>
 
-                                    <div style={{ background: '#eb4a41', color: 'white', padding: '15px', borderRadius: '10px' }}>
+                                    <div style={{ fontFamily: 'gentona',fontWeight: 400, fontSize: '20px', background: '#eb4a41', color: 'white', padding: '15px', borderRadius: '10px' }}>
                                         <p>
-                                            Did Gandhi die before or after the age of <strong>144</strong>?
+                                            Did Gandhi die before or after the age of <strong style={{ fontFamily: 'gentona',fontWeight: 900, fontSize: '22px'}}>144</strong>?
                                         </p>
                                         {/* <PiA filter={[1, 0]} pData={p0} keyName='q1_answer' tag={['Before', 'After']} /> */}
-                                        <hr></hr>
-                                        <p className="text-14">Before: {Math.round((p0.filter(item => item.q1_answer === 0).length / (_data.filter(item => item.survey_num === 1 && item.version === 1).length)) * 100)}%</p>
-                                        <p className="text-14">After: {Math.round((p0.filter(item => item.q1_answer === 1).length / (_data.filter(item => item.survey_num === 1 && item.version === 1).length)) * 100)}%</p>
+                                        <hr style={{ background:'white'}}></hr>
+                                        <p className="text-14" style={{fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',}} >Before: {Math.round((p0.filter(item => item.q1_answer === 0).length / (_data.filter(item => item.survey_num === 1 && item.version === 1).length)) * 100)}%</p>
+                                        <p className="text-14" style={{fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',}} >After: {Math.round((p0.filter(item => item.q1_answer === 1).length / (_data.filter(item => item.survey_num === 1 && item.version === 1).length)) * 100)}%</p>
                                     </div>
                                     <div style={{
+                                        fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',
                                         marginLeft: '20px',
                                         background: '#eb4a41', color: 'white',
                                         padding: '15px',
                                         borderRadius: '10px'
                                     }}>
                                         <p>
-                                            Did Gandhi die before or after the age of <strong>32</strong>?
+                                            Did Gandhi die before or after the age of <strong style={{ fontFamily: 'gentona',fontWeight: 900, fontSize: '22px'}}>32</strong>?
                                         </p>
                                         {/* <PiA filter={[1, 0]} pData={p1} keyName='q1_answer' tag={['Before', 'After']} /> */}
-                                        <hr></hr>
-                                        <p className="text-14">Before: {Math.round((p1.filter(item => item.q1_answer === 0).length / (_data.filter(item => item.survey_num === 1 && item.version === 2).length)) * 100)}%</p>
-                                        <p className="text-14">After: {Math.round((p1.filter(item => item.q1_answer === 1).length / (_data.filter(item => item.survey_num === 1 && item.version === 2).length)) * 100)}%</p>
+                                        <hr style={{ background:'white'}}></hr>
+
+                                        <p className="text-14" style={{fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',}} >Before: {Math.round((p1.filter(item => item.q1_answer === 0).length / (_data.filter(item => item.survey_num === 1 && item.version === 2).length)) * 100)}%</p>
+                                        <p className="text-14" style={{fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',}} >After: {Math.round((p1.filter(item => item.q1_answer === 1).length / (_data.filter(item => item.survey_num === 1 && item.version === 2).length)) * 100)}%</p>
                                     </div>
 
                                 </div>
 
                                 <div style={{
-                                    width: '270px',
+                                    fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',
+                                    width: '350px',
                                     margin: '0 auto',
                                     marginTop: '20px',
                                     background: '#eb4a41', color: 'white',
@@ -334,12 +337,12 @@ function Dashboard({ show }) {
                                         What age did Gandhi die at?
                                     </p>
                                     <hr></hr>
-                                    <p className="text-14">Group 1 average : ${p2.length > 0 ?
+                                    <p className="text-14"  style={{fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',}} >Group 1 average : ${p2.length > 0 ?
                                         (p2.reduce((acc, cur) => acc + (cur.q2_answer || 0), 0) / p2.length).toFixed(2)
                                         : "No data available"}</p>
 
 
-                                    <p className="text-14">Group 2 average : $
+                                    <p className="text-14"  style={{fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',}} >Group 2 average : $
                                         {p3.length > 0 ?
                                             (p3.reduce((acc, cur) => acc + (cur.q2_answer || 0), 0) / p3.length).toFixed(2)
                                             : "No data available"}
@@ -403,25 +406,25 @@ function Dashboard({ show }) {
 
                         {
                             show === 2 && <div style={{ marginTop: "10px" }}>
-                                <h2 style={{ color: 'white', textAlign: 'center' }}>Judgement 2</h2>
+                                <h2 style={{fontFamily: 'quadon', fontWeight: 600, fontSize: '42px',  color: 'white', textAlign: 'center' }}>Judgement 2</h2>
 
-                                <div className="mb-20 cbg-white text-black p-4 rounded-md" style={{ background: '#eb4a41', color: 'white', }}>
+                                <div className="mb-20 cbg-white text-black p-4 rounded-md" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '20px', background: '#eb4a41', color: 'white', }}>
                                     <p className="m-0 text-center mt-4">How much would you donate?</p>
                                 </div>
 
 
                                 <div style={{ display: "flex", flexWrap: 'wrap', justifyContent: 'center' }}>
 
-                                    <div className="bbg-white" style={{ background: '#eb4a41', color: 'white', }}>
+                                    <div className="bbg-white" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '22px',background: '#eb4a41', color: 'white', }}>
                                         <div class={'container-tips text-14'} style={{ background: '#eb4a41', color: 'white', }}>
                                             <p className="m-0 tips text-white">You are generally a charitable person and regularly
                                                 donate. Your favorite charity reached out recently and requested a
-                                                donation of <strong>$400</strong>.
+                                                donation of <strong style={{fontFamily: 'gentona', fontWeight: 800, fontSize: '22px',}}>$400</strong>.
                                             </p>
                                         </div>
 
                                         <hr></hr>
-                                        <p className="text-14">Group 1 average :
+                                        <p className="text-14" style={{fontFamily: 'gentona', fontWeight: 600, fontSize: '22px',}}>Group 1 average :
                                             {survey2Data.filter(item => item.version === 1).length > 0 ? "$" +
                                                 (survey2Data.filter(item => item.version === 1).reduce((acc, cur) => acc + (cur.q1_answer || 0), 0) / survey2Data.filter(item => item.version === 1).length).toFixed(2)
                                                 : "No data available"}</p>
@@ -432,19 +435,22 @@ function Dashboard({ show }) {
                                         {/*     keyName='q1_answer' Xname=' ' Yname='$'/>*/}
                                     </div>
 
-                                    <div className="bbg-white ml-20" style={{ background: '#eb4a41', color: 'white', }}>
+                                    <div className="bbg-white ml-20" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '22px',background: '#eb4a41', color: 'white', }}>
                                         <div class={'container-tips text-14'} style={{ background: '#eb4a41', color: 'white', }}>
                                             <p className="m-0 tips text-white">You are generally a charitable person and regularly
                                                 donate. Your favorite charity reached out recently and requested a
-                                                donation of <strong>$5</strong>.
+                                                donation of <strong style={{fontFamily: 'gentona', fontWeight: 800, fontSize: '22px',}}>$5</strong>.
                                             </p>
                                         </div>
 
                                         <hr></hr>
-                                        <p className="text-14">Group 2 average :
+                                        <p className="text-14" style={{fontFamily: 'gentona', fontWeight: 400, fontSize: '22px',}}>Group 2 average :
+
                                             {survey2Data.filter(item => item.version === 2).length > 0 ? "$" +
                                                 (survey2Data.filter(item => item.version === 2).reduce((acc, cur) => acc + (cur.q1_answer || 0), 0) / survey2Data.filter(item => item.version === 2).length).toFixed(2)
-                                                : "No data available"}</p>
+                                                : "No data available"}
+
+                                        </p>
                                         {/*<Box pData={survey2Data.filter(item => item.version === 2)}*/}
                                         {/*     name='Judgement 2 Group 2 answer'*/}
                                         {/*     keyName='q1_answer' Xname=' ' Yname='$'/>*/}
@@ -455,7 +461,7 @@ function Dashboard({ show }) {
 
                                         </div>
 
-                                        <p className="text-18 text-center" >Overall average :
+                                        <p className="text-18 text-center" style={{fontFamily: 'gentona', fontWeight: 400, fontSize: '22px',}}>Overall average :
                                             {survey2Data.length > 0 ? "$" +
                                                 (survey2Data.reduce((acc, cur) => acc + (cur.q1_answer || 0), 0) / survey2Data.length).toFixed(2)
                                                 : "No data available"}</p>
@@ -485,14 +491,14 @@ function Dashboard({ show }) {
 
                         {
                             show === 5 && <div>
-                                <h2 style={{ color: 'white', textAlign: 'center' }}>Judgement 5</h2>
+                                <h2 style={{fontFamily: 'quadon', fontWeight: 600, fontSize: '42px',  color: 'white', textAlign: 'center' }}>Judgement 5</h2>
 
-                                <div className="mb-20 cbg-white text-black p-4 rounded-md" style={{ background: '#eb4a41', color: 'white', }}>
+                                <div className="mb-20 cbg-white text-black p-4 rounded-md" style={{ fontFamily: 'gentona', fontWeight: 800, fontSize: '20px',background: '#eb4a41', color: 'white', }}>
                                     <p className="m-0 text-center mt-4 text-white">Will you shift to another store?</p>
                                 </div>
 
                                 <div style={{ display: "flex", flexWrap: 'wrap', justifyContent: 'center' }}>
-                                    <div className="bbg-white-400" style={{ background: '#eb4a41', color: 'white', }}>
+                                    <div className="bbg-white-400" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '18px',background: '#eb4a41', color: 'white', }}>
                                         <div class={'container-tips text-14'} style={{ height: '150px', background: '#eb4a41', color: 'white', }}>
                                             <p className="m-0 tips text-white">You are shopping for a luxurious gray pinstripe suit for $425. You are about to buy it, and then another customer whispers that the exact same suit is on sale for $418 at another store 15 minutes away.</p>
                                         </div>
@@ -502,7 +508,7 @@ function Dashboard({ show }) {
                                         <p>YES: {Math.round((survey4Data.filter(item => item.q1_answer === 0 && item.version === 1).length / (survey4Data.filter(item => item.version === 1).length)) * 100)}%</p>
                                         <p>NO: {Math.round((survey4Data.filter(item => item.q1_answer === 1 && item.version === 1).length / (survey4Data.filter(item => item.version === 1).length)) * 100)}%</p>
                                     </div>
-                                    <div className="bbg-white-400 ml-20" style={{ background: '#eb4a41', color: 'white', }}>
+                                    <div className="bbg-white-400 ml-20" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '18px',background: '#eb4a41', color: 'white', }}>
                                         <div class={'container-tips text-14'} style={{ height: '150px', background: '#eb4a41', color: 'white', }}>
                                             <p className="m-0 tips text-white">You go to a store and find a nice pen for $25. Then you remember that the same pen is on sale for $18 at another store 15 minutes away.</p>
                                         </div>
@@ -518,17 +524,17 @@ function Dashboard({ show }) {
 
                         {
                             show === 4 && <div>
-                                <h2 style={{ color: 'white', textAlign: 'center' }}>Judgement 4</h2>
+                                <h2 style={{fontFamily: 'quadon', fontWeight: 600, fontSize: '42px',  color: 'white', textAlign: 'center' }}>Judgement 4</h2>
                                 <div style={{ color: 'white', textAlign: 'left', width: '700px', margin: '0 auto' }}>
                                 </div>
 
-                                <div className="mb-20 cbg-white text-black p-4 rounded-md" style={{ background: '#eb4a41', color: 'white', }}>
+                                <div className="mb-20 cbg-white text-black p-4 rounded-md" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '16px', background: '#eb4a41', color: 'white', }}>
                                     <p className="m-0 tips text-white">Congratulations! You have just been elected as mayor of a small town in Cold Mountain with 600 inhabitants.Bad news! Just after you are elected, a mysterious epidemic disease (much worse than the H1N1 flu) will attack your small town very soon.The doctors rush to look for cure for the disease, and find two kinds of vaccines. You can only choose one to use in your town.</p>
                                     <p className="m-0 text-center mt-4">Which one will you choose?</p>
                                 </div>
 
                                 <div style={{ display: "flex", flexWrap: 'wrap', justifyContent: 'center', }}>
-                                    <div className="bbg-white" style={{ background: '#eb4a41', color: 'white', }}>
+                                    <div className="bbg-white" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '16px',background: '#eb4a41', color: 'white', }}>
                                         <div class={'container-tips text-14 text-white'} style={{ background: '#eb4a41', color: 'white', }}>
                                             <p className="m-0 text-left mt-4">A: 400 (out of 600) people will die from this disease;</p>
                                             <p className="m-0 text-left mt-4">B: with 1/3 probability, nobody dies; with 2/3 probability all 600 will die.</p>
@@ -539,7 +545,7 @@ function Dashboard({ show }) {
                                         <p>A: {Math.round((survey3Data.filter(item => item.q1_answer === 1 && item.version === 1).length / (survey3Data.filter(item => item.version === 1).length)) * 100)}%</p>
                                         <p>B: {Math.round((survey3Data.filter(item => item.q1_answer === 2 && item.version === 1).length / (survey3Data.filter(item => item.version === 1).length)) * 100)}%</p>
                                     </div>
-                                    <div className="bbg-white ml-20" style={{ background: '#eb4a41', color: 'white', }}>
+                                    <div className="bbg-white ml-20" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '16px',background: '#eb4a41', color: 'white', }}>
                                         <div class={'container-tips text-14 text-white'} style={{ background: '#eb4a41', color: 'white', }}>
                                             <p className="m-0 text-left mt-4">C: it will save 200 (out of 600) people </p>
                                             <p className="m-0 text-left mt-4">D: with 1/3 probability, all 600 will be saved, with 2/3 probability nobody of the 600 will be saved. </p>
@@ -556,17 +562,17 @@ function Dashboard({ show }) {
 
                         {
                             show === 6 && <div>
-                                <h2 style={{ color: 'white', textAlign: 'center' }}>Judgement 6</h2>
+                                <h2 style={{fontFamily: 'quadon', fontWeight: 600, fontSize: '42px',  color: 'white', textAlign: 'center' }}>Judgement 6</h2>
                                 <div style={{ color: 'white', textAlign: 'left', width: '700px', margin: '0 auto' }}>
                                 </div>
 
-                                <div className="mb-20 cbg-white text-black p-4 rounded-md mx-auto" style={{ background: '#eb4a41', color: 'white', width: '400px' }}>
+                                <div className="mb-20 cbg-white text-black p-4 rounded-md mx-auto" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '18px', background: '#eb4a41', color: 'white', width: '800px' }}>
                                     <p className="m-0 tips text-white">You go to an office end-of-year party where your colleagues have brought their partners. Your colleague introduces you to her partner, Mark, noting that Mark has a Ph.D., he loves poetry, and loves our cat!</p>
                                     <p className="m-0 tips text-white">You have to guess if Mark plays Golf or Soccer</p>
                                 </div>
 
                                 <div className="mx-auto text-center" style={{ display: "flex", flexWrap: 'wrap', justifyContent: 'center', width: '150px' }}>
-                                    <div className="bbg-white" style={{ background: '#eb4a41', color: 'white' }}>
+                                    <div className="bbg-white" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '18px', background: '#eb4a41', color: 'white' }}>
                                         {/* <PiA filter={[0, 1]} pData={survey5Data} name='survey2_q1_answer' keyName='q1_answer'
                                             tag={['Golf', 'Soccer']} /> */}
                                         <p>Golf: {Math.round((survey5Data.filter(item => item.q1_answer === 0).length / (survey5Data.length)) * 100)}%</p>
@@ -578,19 +584,19 @@ function Dashboard({ show }) {
 
                         {
                             show === 3 && <div>
-                                <h2 style={{ color: 'white', textAlign: 'center' }}>Judgement 3</h2>
+                                <h2 style={{fontFamily: 'quadon', fontWeight: 600, fontSize: '42px',  color: 'white', textAlign: 'center' }}>Judgement 3</h2>
                                 <div style={{ color: 'white', textAlign: 'left', width: '700px', margin: '0 auto' }}>
                                 </div>
 
-                                <div className="mb-20 cbg-white text-black p-4 rounded-md" style={{ background: '#eb4a41', color: 'white', }}>
+                                <div className="mb-20 cbg-white text-black p-4 rounded-md" style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '18px', background: '#eb4a41', color: 'white', }}>
                                     <p className="m-0 tips text-white">MedCo Inc. just developed a breakthrough therapy for a rare disease and did a study on its effectiveness. On a "6-point scale" with 6 being very good, and 1 being very bad, how would you evaluate the drug’s effect?</p>
                                 </div>
 
                                 <div style={{ display: "flex", flexWrap: 'wrap', justifyContent: 'center', }}>
-                                    <div className="bbg-white" style={{ background: '#eb4a41', color: 'white', }}>
-                                        <div className="container-tips text-14" style={{ background: '#eb4a41', color: 'white', }}>
+                                    <div className="bbg-white" style={{ fontFamily: 'gentona', fontWeight: 600, background: '#eb4a41', color: 'white', }}>
+                                        <div className="container-tips text-14" style={{ background: '#eb4a41', color: 'white', height:"50px"}}>
                                             <p className="m-0 text-center mt-4"> 100 patients took the medicine
-                                                and <strong>70 patients got better</strong>.</p>
+                                                and <strong style={{fontFamily: 'quadon', fontWeight: 900}}>70 patients got better</strong>.</p>
                                         </div>
                                         <hr />
                                         {/*<PiA isDiyData filter={[1, 2, 3, 4, 5, 6]}*/}
@@ -608,20 +614,28 @@ function Dashboard({ show }) {
                                         <div id="t1" className="bbg-white mx-auto" style={{ padding: '10px', width: '400px', height: '300px' }}>
 
                                         </div>
-                                        <div className="text-center">
+                                        <div className="text-center"
+                                             style={{fontFamily: 'quadon', fontWeight: 800, fontSize: "24px"}}>
                                             Average:
-                                            {Math.round(getAvg(survey6Data.filter(item => item.version === 1).map(item => item.q1_answer)))}
+                                            {getAvg(survey6Data.filter(item => item.version === 1).map(item => item.q1_answer)).toFixed(1)}
                                         </div>
 
 
                                     </div>
-                                    <div className="bbg-white ml-20" style={{ background: '#eb4a41', color: 'white', }}>
-                                        <div className="container-tips text-14" style={{ background: '#eb4a41', color: 'white', }}>
-                                            <p className="m-0 text-center mt-4 text-white">100 patients took the medicine
-                                                and <strong>30
+                                    <div className="bbg-white ml-20" style={{background: '#eb4a41', color: 'white',}}>
+                                        <div className="container-tips text-14" style={{
+                                            fontFamily: 'gentona',
+                                            fontWeight: 600,
+                                            background: '#eb4a41',
+                                            color: 'white',
+                                            height: "50px"
+                                        }}>
+                                            <p className="m-0 text-center mt-4 text-white">100 patients took the
+                                                medicine
+                                                and <strong style={{fontFamily: 'quadon', fontWeight: 900}}>30
                                                     patients did not get better</strong>.</p>
                                         </div>
-                                        <hr />
+                                        <hr/>
                                         {/*<PiA isDiyData filter={[1, 2, 3, 4, 5, 6]}*/}
                                         {/*     pData={survey6Data.filter(item => item.version === 2)}*/}
                                         {/*     name='survey4_q2_answer'*/}
@@ -635,12 +649,14 @@ function Dashboard({ show }) {
                                         <p>6: {Math.round((survey6Data.filter(item => item.q1_answer === 6 && item.version === 2).length / (survey6Data.filter(item => item.version === 2).length)) * 100)}%</p>
                                          */}
 
-                                        <div id="t2" className="bbg-white mx-auto" style={{ padding: '10px', width: '400px', height: '300px' }}>
+                                        <div id="t2" className="bbg-white mx-auto"
+                                             style={{padding: '10px', width: '400px', height: '300px'}}>
 
                                         </div>
-                                        <div className="text-center">
+                                        <div className="text-center"
+                                             style={{fontFamily: 'quadon', fontWeight: 800, fontSize: "24px"}}>
                                             Average:
-                                            {Math.round(getAvg(survey6Data.filter(item => item.version === 2).map(item => item.q1_answer)))}
+                                            {getAvg(survey6Data.filter(item => item.version === 2).map(item => item.q1_answer)).toFixed(1)}
                                         </div>
 
                                     </div>
@@ -652,12 +668,12 @@ function Dashboard({ show }) {
 
                         {
                             show === 7 && <div>
-                                <h2 style={{ color: 'white', textAlign: 'center' }}>Poll 1</h2>
+                                <h2 style={{fontFamily: 'quadon', fontWeight: 600, fontSize: '42px',  color: 'white', textAlign: 'center' }}>Poll 1</h2>
                                 <div style={{ color: 'white', textAlign: 'left', width: '700px', margin: '0 auto' }}>
                                 </div>
                                 <div style={{ display: "flex", flexWrap: 'wrap', justifyContent: 'center', color: 'white' }}>
                                     <div>
-                                        <div style={{ textAlign: 'center', padding: '10px', borderRadius: '4px', background: '#eb4a41', color: 'white', }}>
+                                        <div style={{ fontFamily: 'gentona',fontWeight: 400, fontSize: '20px', textAlign: 'center', padding: '10px', borderRadius: '4px', background: '#eb4a41', color: 'white', }}>
                                             <h5 style={{ marginBottom: 0 }}>1-1</h5>
                                             <p style={{ marginBottom: 0 }}>Have you personally used an AI productivity tool?</p>
                                             {/* <PiA filter={[0, 1]} pData={survey7Data.filter(item => item.version === 1)}
@@ -667,7 +683,7 @@ function Dashboard({ show }) {
                                             <p>NO: {Math.round((survey7Data.filter(item => item.q1_answer === 1 && item.version === 1).length / (survey7Data.filter(item => item.version === 1).length)) * 100)}%</p>
                                         </div>
                                     </div>
-                                    <div style={{ marginLeft: '50px', textAlign: 'center', background: '#eb4a41', color: 'white', padding: '10px', borderRadius: '4px', marginRight: '50px' }}>
+                                    <div style={{ fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',marginLeft: '50px', textAlign: 'center', background: '#eb4a41', color: 'white', padding: '10px', borderRadius: '4px', marginRight: '50px' }}>
                                         <h5 style={{ marginBottom: 0 }}>1-2</h5>
                                         <p style={{ marginBottom: 0 }}>If yes, which one </p>
                                         <div style={{ height: '18.8rem', overflow: 'auto', background: '#eb4a41', color: 'white', padding: '15px' }}>
@@ -689,7 +705,7 @@ function Dashboard({ show }) {
                                         </div>
                                     </div>
                                     <div>
-                                        <div style={{ marginTop: '20px', textAlign: 'center', background: '#eb4a41', color: 'white', padding: '10px', borderRadius: '4px' }}>
+                                        <div style={{ fontFamily: 'gentona',fontWeight: 400, fontSize: '20px', marginTop: '20px', textAlign: 'center', background: '#eb4a41', color: 'white', padding: '10px', borderRadius: '4px' }}>
                                             <h5 style={{ marginBottom: 0 }}>1-3</h5>
                                             <p style={{ marginBottom: 0 }}>To what extent did you find the tool useful? </p>
                                             <p style={{ marginBottom: 0 }}>(5-point scale, 1=not at all useful, 5=very useful)</p>
@@ -718,8 +734,9 @@ function Dashboard({ show }) {
 
                         {
                             show === 8 && <div>
-                                <h2 style={{ color: 'white', textAlign: 'center' }}>Poll 2</h2>
+                                <h2 style={{fontFamily: 'quadon', fontWeight: 600, fontSize: '42px', color: 'white', textAlign: 'center' }}>Poll 2</h2>
                                 <div style={{
+                                    fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',
                                     textAlign: 'center',
                                     padding: '10px',
                                     borderRadius: '4px',
@@ -793,11 +810,11 @@ function Dashboard({ show }) {
 
                         {
                             show === 9 && <div>
-                                <h2 style={{ color: 'white', textAlign: 'center' }}>Poll 3</h2>
-                                <div style={{ color: 'white', textAlign: 'center' }}>
+                                <h2 style={{fontFamily: 'quadon', fontWeight: 600, fontSize: '42px',  color: 'white',textAlign: 'center' }}>Poll 3</h2>
+                                <div style={{ fontFamily: 'gentona', fontWeight: 600, fontSize: '18px', color: 'white', textAlign: 'center' }}>
                                     <div style={{ display: 'flex', margin: '0 auto', justifyContent: 'center' }}>
-                                        <div style={{ textAlign: 'center', background: '#eb4a41', color: 'white', padding: '10px', borderRadius: '4px' }}>
-                                            <h5 style={{ marginBottom: 0 }}>2-1</h5>
+                                        <div style={{ width:"400px", textAlign: 'center', background: '#eb4a41', color: 'white', padding: '10px', borderRadius: '4px' }}>
+                                            <h5 style={{ marginBottom: 0 }}>3-1</h5>
                                             <p style={{ marginBottom: 0 }}>AI will change how you do your current job in the next five years</p>
                                             <div>
                                                 {/* <PiA isDiyData filter={[0, 1, 2]}
@@ -809,8 +826,8 @@ function Dashboard({ show }) {
                                                 <p>Likely: {Math.round((survey9Data.filter(item => item.q1_answer === 2 && item.version === 1).length / (survey9Data.filter(item => item.version === 1).length)) * 100)}%</p>
                                             </div>
                                         </div>
-                                        <div style={{ textAlign: 'center', marginLeft: '30px', background: '#eb4a41', color: 'white', padding: '10px', borderRadius: '4px' }}>
-                                            <h5 style={{ marginBottom: 0 }}>2-2</h5>
+                                        <div style={{ width:"350px",textAlign: 'center', marginLeft: '30px', background: '#eb4a41', color: 'white', padding: '10px', borderRadius: '4px' }}>
+                                            <h5 style={{ marginBottom: 0 }}>3-2</h5>
                                             <p style={{ marginBottom: 0 }}>AI will replace your current job in the next five years</p>
                                             <div>
                                                 {/* <PiA isDiyData filter={[0, 1, 2]}

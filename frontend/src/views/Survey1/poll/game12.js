@@ -91,63 +91,68 @@ function Game12() {
 
     return (
         <form onSubmit={handleSubmit} className="gandhi-survey-form">
-            <h1>  </h1>
+            <h1></h1>
             <Row>
-                <Col className="ml-auto mr-auto" md="5.5" style={{ padding: '50px', width: '100%' }}>
-                    <FormGroup style={{ width: '80%', margin: '0 auto' }}>
-                        <Label htmlFor="ageComparisonDropdown" style={{ fontWeight: 'bold', fontSize: '18px' }}>
+                <Col className="ml-auto mr-auto" md="5.5" style={{padding: '50px', width: '100%'}}>
+                    <FormGroup style={{width: '80%', margin: '0 auto'}}>
+                        <Label htmlFor="ageComparisonDropdown" style={{fontWeight: 'bold', fontSize: '18px'}}>
                             If yes, which one
                         </Label>
-                        <Input
-                            disabled={submitDisabled ? true : false}
-                            style={{ marginTop: '15px', width: '100%' }}
-                            aria-describedby="emailHelp"
-                            placeholder="Enter an AI"
-                            type="text"
-                            required
-                            value={money}
-                            onChange={_ => setMoney(_.target.value)}
-                        ></Input>
+                        {!submitDisabled &&
+                            <Input
+                                disabled={submitDisabled ? true : false}
+                                style={{marginTop: '15px', width: '100%'}}
+                                aria-describedby="emailHelp"
+                                placeholder="Enter an AI"
+                                type="text"
+                                required
+                                value={money}
+                                onChange={_ => setMoney(_.target.value)}
+                            ></Input>}
                     </FormGroup>
                 </Col>
             </Row>
 
-            {
-                resultData.length > 0 ? <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
-                    <h3>Result</h3>
-                    <div style={{ height: '17rem', overflow: 'auto' }}>
+            {/*{*/}
+            {/*    resultData.length > 0 ? <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>*/}
+            {/*        <h3>Result</h3>*/}
+            {/*        <div style={{ height: '17rem', overflow: 'auto' }}>*/}
 
-                        {uniqueNormalizedValues().map(item => (
-                            <div key={item} style={{ display: 'flex', justifyContent: 'center' }}>
-                                <div style={{ display: 'flex' }}>
-                                    <p style={{ width: '150px' }}>{item}</p>
-                                    <p>repeat: {repeatCount(item)}</p>
-                                </div>
-                            </div>
-                        ))}
+            {/*            {uniqueNormalizedValues().map(item => (*/}
+            {/*                <div key={item} style={{ display: 'flex', justifyContent: 'center' }}>*/}
+            {/*                    <div style={{ display: 'flex' }}>*/}
+            {/*                        <p style={{ width: '150px' }}>{item}</p>*/}
+            {/*                        <p>repeat: {repeatCount(item)}</p>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*            ))}*/}
 
-                    </div>
-                </div>
-                    :
-                    ''
-            }
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*        :*/}
+            {/*        ''*/}
+            {/*}*/}
+            <div style={{textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none'}}>
+                <h3>Your response: {money}</h3>
+            </div>
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
-                color="info"
-                type="submit"
-                style={{ marginRight: '20px', display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
+                    color="info"
+                    type="submit"
+                    style={{marginRight: '20px', display: submitDisabled ? 'none' : 'block'}}>Submit</Button>
 
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? false : true}
-                onClick={_ => {
-                    _.preventDefault()
-                    setSubmitDisabled(false)
-                    setMoney('')
-                    navigate('/poll_13')
-                }}
-                color="success"
-                type="submit"
-                style={{ marginRight: '20px', display: submitDisabled ? 'block' : 'none' }} >Next question <span style={{ fontWeight: 'bold' }}>2/3</span></Button>
+                    onClick={_ => {
+                        _.preventDefault()
+                        setSubmitDisabled(false)
+                        setMoney('')
+                        navigate('/poll_13')
+                    }}
+                    color="success"
+                    type="submit"
+                    style={{marginRight: '20px', display: submitDisabled ? 'block' : 'none'}}>Next question <span
+                style={{fontWeight: 'bold'}}>2/3</span></Button>
 
             {/* <Button className="btn-round pull-right"
                 color="info"
@@ -160,7 +165,16 @@ function Game12() {
                     Refresh result
             </Button> */}
 
-            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white' }} >
+            <div style={{
+                background: '#1e3246',
+                position: 'absolute',
+                bottom: '6px',
+                left: '6px',
+                padding: '10px',
+                borderRadius: '4px',
+                color: 'white',
+                display: submitDisabled ? 'block' : 'none'
+            }}>
                 Please wait for Instructor
             </div>
 

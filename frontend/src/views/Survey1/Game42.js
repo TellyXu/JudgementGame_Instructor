@@ -83,36 +83,40 @@ function Game32() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="gandhi-survey-form" style={{ padding: '30px' }}>
-            <Label style={{ marginBottom: '5px' }}>
-                Congratulations! You have just been elected as mayor of a small town in Cold Mountain with 600 inhabitants.
+        <form onSubmit={handleSubmit} className="gandhi-survey-form" style={{padding: '30px'}}>
+            <Label style={{marginBottom: '5px'}}>
+                Congratulations! You have just been elected as mayor of a small town in Cold Mountain with 600
+                inhabitants.
 
             </Label>
             <Label>
 
-                Bad news! Just after you are elected, a mysterious epidemic disease (much worse than the H1N1 flu) will attack your small town very soon.
+                Bad news! Just after you are elected, a mysterious epidemic disease (much worse than the H1N1 flu) will
+                attack your small town very soon.
             </Label>
-            <Label style={{ marginBottom: '20px', borderBottom: '1px solid red' }}>
+            <Label style={{marginBottom: '20px', borderBottom: '1px solid red'}}>
 
-                The doctors rush to look for cure for the disease, and find two kinds of vaccines. You can only choose one to use in your town.
+                The doctors rush to look for cure for the disease, and find two kinds of vaccines. You can only choose
+                one to use in your town.
             </Label>
             <Row>
-                <Col className="ml-auto mr-auto" >
+                <Col className="ml-auto mr-auto">
                     <FormGroup>
                         <Label htmlFor="ageComparisonDropdown">
 
-                            <Label style={{ marginBottom: '0' }}>
+                            <Label style={{marginBottom: '0'}}>
                                 Vaccine C: it will save 200 (out of 600) people
                             </Label>
-                            <Label style={{ marginBottom: '0' }}>
-                                Vaccine D: with 1/3 probability, all 600 will be saved, with 2/3 probability nobody of the 600 will be saved.
+                            <Label style={{marginBottom: '0'}}>
+                                Vaccine D: with 1/3 probability, all 600 will be saved, with 2/3 probability nobody of
+                                the 600 will be saved.
                             </Label>
 
-                            <Label style={{ marginBottom: '0', fontWeight: 'weight' }}>
+                            <Label style={{marginBottom: '0', fontWeight: 'weight'}}>
                                 Which one will you choose?
                             </Label>
                         </Label>
-
+                        {!submitDisabled&&
                         <UncontrolledDropdown>
                             <DropdownToggle caret color="primary">
                                 {select1 ? (select1 === '3' ? 'C' : 'D') : 'Select C or D'}
@@ -121,36 +125,43 @@ function Game32() {
                                 <DropdownItem onClick={() => setSelect1('3')}>C</DropdownItem>
                                 <DropdownItem onClick={() => setSelect1('4')}>D</DropdownItem>
                             </DropdownMenu>
-                        </UncontrolledDropdown>
+                        </UncontrolledDropdown>}
 
                     </FormGroup>
                 </Col>
             </Row>
 
-            <div style={{ textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none' }}>
-                <h3>Result</h3>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>Vaccine C Count:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.q1_answer === 3)).length}</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>Vaccine D Count:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{(resultData.filter(item => item.q1_answer === 4)).length}</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>Vaccine C percentage:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 3).length / resultData.length * 100))}%</p>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <p>Vaccine D percentage:&nbsp;&nbsp;</p>
-                    <p style={{ fontWeight: 'bold' }}>{Math.round((resultData.filter(item => item.q1_answer === 4).length / resultData.length * 100))}%</p>
-                </div>
+            {/*<div style={{textAlign: 'center', padding: '0 40px', display: submitDisabled ? 'block' : 'none'}}>*/}
+            {/*    <h3>Result</h3>*/}
+            {/*    <div style={{display: 'flex', justifyContent: 'center'}}>*/}
+            {/*        <p>Vaccine C Count:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{fontWeight: 'bold'}}>{(resultData.filter(item => item.q1_answer === 3)).length}</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{display: 'flex', justifyContent: 'center'}}>*/}
+            {/*        <p>Vaccine D Count:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{fontWeight: 'bold'}}>{(resultData.filter(item => item.q1_answer === 4)).length}</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{display: 'flex', justifyContent: 'center'}}>*/}
+            {/*        <p>Vaccine C percentage:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{fontWeight: 'bold'}}>{Math.round((resultData.filter(item => item.q1_answer === 3).length / resultData.length * 100))}%</p>*/}
+            {/*    </div>*/}
+            {/*    <div style={{display: 'flex', justifyContent: 'center'}}>*/}
+            {/*        <p>Vaccine D percentage:&nbsp;&nbsp;</p>*/}
+            {/*        <p style={{fontWeight: 'bold'}}>{Math.round((resultData.filter(item => item.q1_answer === 4).length / resultData.length * 100))}%</p>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+            <div style={{textAlign: 'center', padding: '0 40px'}}>
+                {submitDisabled && (
+                    <h3>Your
+                        response: {select1 === '1' ? 'A' : select1 === '2' ? 'B' : select1 === '3' ? 'C' : 'D'}</h3>
+                )}
             </div>
 
             <Button className="btn-round pull-right" disabled={submitDisabled ? true : false}
-                color="info"
-                type="submit"
-                style={{ display: submitDisabled ? 'none' : 'block' }} >Submit</Button>
+                    color="info"
+                    type="submit"
+                    style={{display: submitDisabled ? 'none' : 'block'}}>Submit</Button>
 
             {/* <Button className="btn-round pull-right"
                     color="info"
@@ -164,17 +175,25 @@ function Game32() {
             </Button> */}
 
             <Button className="btn-round pull-right"
-                color="info"
-                style={{ marginRight: '20px' }}
-                onClick={(e) => {
-                    e.preventDefault();
-                    navigate('/presentation');
-                }}>
+                    color="info"
+                    style={{marginRight: '20px'}}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        navigate('/presentation');
+                    }}>
                 Home Page
             </Button>
 
-            <div style={{ background: '#1e3246', position: 'absolute', bottom: '6px', left: '6px', padding: '10px', borderRadius: '4px', color: 'white',
-                display: submitDisabled ? 'block' : 'none' }} >
+            <div style={{
+                background: '#1e3246',
+                position: 'absolute',
+                bottom: '6px',
+                left: '6px',
+                padding: '10px',
+                borderRadius: '4px',
+                color: 'white',
+                display: submitDisabled ? 'block' : 'none'
+            }}>
                 Please wait for Instructor
             </div>
 
