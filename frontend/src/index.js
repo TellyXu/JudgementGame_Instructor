@@ -86,6 +86,16 @@ root.render(
 
       <Route path="/judgement61" element={<Survey survey={'6-1'} key={'6-1'} />} />
 
+      {/* !~ */}
+      <Route path="/poll_11" element={<Survey survey={'poll-1-1'} key={'poll-1-1'} />} />
+      <Route path="/poll_12" element={<Survey survey={'poll-1-2'} key={'poll-1-2'} />} />
+      <Route path="/poll_13" element={<Survey survey={'poll-1-3'} key={'poll-1-3'} />} />
+      <Route path="/poll_21" element={<Survey survey={'poll-2-1'} key={'poll-2-1'} />} />
+      {/*<Route path="/poll_22" element={<Survey survey={'poll-2-2'} key={'poll-2-2'} />} />*/}
+      <Route path="/poll_31" element={<Survey survey={'poll-3-1'} key={'poll-3-1'} />} />
+      <Route path="/poll_32" element={<Survey survey={'poll-3-2'} key={'poll-3-2'} />} />
+      {/* ~! */}
+
       <Route path="*" element={<Navigate to="/presentation" replace />} />
     </Routes>
     </ModalProvider>
