@@ -336,12 +336,12 @@ function Dashboard({ show }) {
                                         What age did Gandhi die at?
                                     </p>
                                     <hr></hr>
-                                    <p className="text-14"  style={{fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',}} >Group 1 average : ${p2.length > 0 ?
+                                    <p className="text-14"  style={{fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',}} >Group 1 average : {p2.length > 0 ?
                                         (p2.reduce((acc, cur) => acc + (cur.q2_answer || 0), 0) / p2.length).toFixed(2)
                                         : "No data available"}</p>
 
 
-                                    <p className="text-14"  style={{fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',}} >Group 2 average : $
+                                    <p className="text-14"  style={{fontFamily: 'gentona',fontWeight: 400, fontSize: '20px',}} >Group 2 average : 
                                         {p3.length > 0 ?
                                             (p3.reduce((acc, cur) => acc + (cur.q2_answer || 0), 0) / p3.length).toFixed(2)
                                             : "No data available"}
