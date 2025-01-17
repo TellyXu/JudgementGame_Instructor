@@ -195,6 +195,51 @@ function ScrollTransparentNavbar() {
                 </DropdownMenu>
               </UncontrolledDropdown>
 
+                      
+              <UncontrolledDropdown nav>
+                <DropdownToggle
+                  caret
+                  color="default"
+                  data-toggle="dropdown"
+                  href="#pablo"
+                  id="navbarDropdownMenuLink"
+                  nav
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <img src={looksTwoIcon} alt="Group 2 Icon" />
+                  <p>POLLs</p>
+                </DropdownToggle>
+                <DropdownMenu aria-labelledby="navbarDropdownMenuLink" right>
+                  <DropdownItem to="/poll_11" tag={Link}>
+                    <i className="now-ui-icons business_bulb-63"></i>
+                    Poll 1
+                  </DropdownItem>
+                  {/*<DropdownItem to="/poll_12" tag={Link}>*/}
+                  {/*  <i className="now-ui-icons business_bank"></i>*/}
+                  {/*  Judgement 1-2*/}
+                  {/*</DropdownItem>*/}
+                  {/*<DropdownItem to="/poll_13" tag={Link}>*/}
+                  {/*  <i className="now-ui-icons business_briefcase-24"></i>*/}
+                  {/*  Judgement 1-3*/}
+                  {/*</DropdownItem>*/}
+                  <DropdownItem to="/poll_21" tag={Link}>
+                    <i className="now-ui-icons business_badge"></i>
+                    Poll 2
+                  </DropdownItem>
+                  {/*<DropdownItem to="/poll_22"  tag={Link}>*/}
+                  {/*  <i className="now-ui-icons transportation_air-baloon"></i>*/}
+                  {/*  Judgement 2-2*/}
+                  {/*</DropdownItem>*/}
+                  <DropdownItem to="/poll_31"  tag={Link}>
+                    <i className="now-ui-icons business_money-coins"></i>
+                    Poll 3
+                  </DropdownItem>
+                  {/*<DropdownItem to="/poll_32"  tag={Link}>*/}
+                  {/*  <i className="now-ui-icons transportation_air-baloon"></i>*/}
+                  {/*  Judgement 3-2*/}
+                  {/*</DropdownItem>*/}
+                </DropdownMenu>
+              </UncontrolledDropdown>
 
 
 
