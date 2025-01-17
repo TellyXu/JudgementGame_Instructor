@@ -17,14 +17,13 @@ import DualBoxEchart from "../components/combinedbox";
 function Dashboard({ show }) {
 
     const getAvg = (values) => {
-        console
-            .log('values', values)
+        console.log('values', values);
         if (values.length === 0) {
-            return ''
+            return 0; // 返回0而非空字符串，确保类型一致性
         }
-        const sum = values.reduce((previous, current) => current += previous);
+        const sum = values.reduce((previous, current) => previous + current, 0); // 显式地设置初始值为0
         const avg = sum / values.length;
-        return avg
+        return avg;
     }
 
     const navigate = useNavigate();
